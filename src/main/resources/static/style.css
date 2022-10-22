@@ -216,7 +216,7 @@ width:270px; padding:0px 5px; margin:15px; float:left;
 /************ End Content **************/
 
 /************ Start Footer *****************/
-.footer{ width:1300px; float:left; background:#eb3d51;}
+.footer{ width: 100%; float:left; background:#eb3d51;}
 .footer-parts{ width:300px; float:left; padding:0px 10px;}
 .footer-parts-h4{ font-size:18px; padding:15px 10px 0px; color:#FFF;}
 .footer-parts ul{list-style:none; padding:0px;}
