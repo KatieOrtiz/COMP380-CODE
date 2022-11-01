@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<title>CODE Store</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {margin:0;}
+body {font-family: Arial, Helvetica, sans-serif;
+  margin:0;
+}
 
+/* Style the header */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 40px;
+}
 .navbar {
   overflow: hidden;
   background-color: #0e387a;
@@ -21,6 +37,12 @@ body {margin:0;}
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  text-decoration: none; /* Remove underline */
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right; /* Float a link to the right */
 }
 
 .navbar a:hover {
@@ -49,25 +71,29 @@ body {margin:0;}
 </style>
 </head>
 <body>
+  <div class="header">
+    <h1>Welcome to the CODE Store!</h1>
+    <p><b>Here on the CODE store, you will be able to browse the various items that are available to purchase!</b></p>
+  </div>
+  
+  <div class="navbar">
+    <a href="#home">Login</a>
+    <a href="#signup">Signup</a>
+    <a href="#contact">Contact</a>
+    <a href="#cart" class="right">Cart</a>
+  </div>
 
-<div class="navbar">
-  <a href="#home">Login</a>
-  <a href="#news">Signup</a>
-  <a href="#contact">Contact</a>
-</div>
+  <div class="main">
+    <h3>Item Section</h2>
 
-<div class="main">
-  <h1>CODE STORE</h1>  
-  <h2>Item Section</h2>
-
-  <div class="card">
-    <img src="img/shoe.jpg" alt="Avatar" style="width:100%">
-    <div class="container">
-      <h4><b>EPIC SHOES</b></h4> 
-      <p>These shoes are amazing</p> 
+    <div class="card">
+      <img src="img/shoe.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>EPIC SHOES</b></h4> 
+        <p>These shoes are amazing</p> 
+      </div>
     </div>
   </div>
-</div>
 
 </body>
 </html>
