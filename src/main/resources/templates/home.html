@@ -1,75 +1,130 @@
-<html>
-    
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>CODE Store</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
-<link rel="stylesheet" type="text/css" href="font-awesome.min.css" />
+<title>CODE Store Home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+  margin:0;
+  padding-top: 65px; 
+}
+
+/* Style the header */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #9fafca;
+  color: black;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 40px;
+}
+/* Top Navbar */
+.navbar {
+  overflow: hidden;
+  background-color: #0e387a;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  text-decoration: none; /* Remove underline */
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right; /* Float a link to the right */
+}
+
+.navbar a:hover {
+  background: #9fafca;
+  color: black;
+}
+
+/* Bottom Navbar */
+.bottomnavbar {
+  overflow: hidden;
+  background-color: #0e387a;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.bottomnavbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.bottomnavbar a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+.main {
+  padding: 16px;
+  margin-top: 30px;
+  height: 1500px;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+</style>
 </head>
-
 <body>
-<div class="main">
- <h1>Welcome to the CODE Store!</h1>
-  <p style="font-family: Arial"><b>Here on the CODE store, you will be able to browse the various items that are available to purchase! </b></p>
-</div>
+  <div class="header">
+    <h1>Welcome to the CODE Store!</h1>
+    <p><b>Here on the CODE store, you will be able to browse the various items that are available to purchase!</b></p>
+  </div>
+  
+  <div class="navbar">
+    <a href="/home">Home</a>
+    <a href="/login">Login</a>
+    <a href="/signup">Signup</a>
+    <a href="/cart" class="right">Cart</a>
+  </div>
 
-<!-- NAV BAR -->
-<div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-</div>
+  <div class="main">
+    <h3>Item Section</h3>
 
-<!----- Start Slider (or) Banner ------>
-<div class="slider">
-   <div class="slider-padding">
-   </div>
-</div>
-<!----- End Slider (or) Banner ------>
-
-<!----- Start Content ------>
-<div class="content">
-
-	<div class="content-left">
-        <div id='content_left_menu'>
-        <div class="categories">All Categories</div>
-        <ul>
-        	<li class='has-sub'><a href='#'><span>Featured brands</span></a>
-          </li>
-        </ul>
-        </div>
-    </div>
-    <div class="content-right">
- 		<div class="categories-right">All Products</div>
-        <div align="center">
-            <div class="content-right-product">
-                <div><img src="images/1.jpg" width="270" height="200"></div>
-                <div class="content-right-product-h4">PRODUCT</div>
-                <div class="content-right-product-p">PRODUCT DESCRIPTION</div>
-                <div class="content-right-product-amount"><i style="color:#df001a;"></i> PRICE</div>
-                <div class="cart" align="center"><a href="" class="btn">Add to Cart</a></div>
-            </div>
-        </div>
-        </div>
-    </div>
-
-</div>
-<!------ End Content ------->
-
-<!------ Start Footer ------->
-<div class="footer">
-	<div class="footer-parts">
-    	<div class="footer-parts-h4">About Us</div>
-        <div class="about-footer">STORE DESCRIPTION</div>
-    </div>
-    <div class="footer-parts">
-    	<div class="footer-parts-h4">MORE LINKS?</div>
-    	<ul>
-        <li><a href="#">FAQ</a></li>
-      </ul>
-    </div>
-    <div class="footer-parts">
+    <div class="card">
+      <img src="shoe.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>EPIC SHOES</b></h4> 
+        <p>These shoes are amazing</p> 
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="bottomnavbar">
+    <a href="/about" class="active">About</a>
+    <a href="/faq">FAQ</a>
+    <a href="/contact">Contact</a>
+  </div>
 </body>
 </html>

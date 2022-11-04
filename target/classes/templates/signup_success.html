@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>CODE Store Signup Success</title>
+<style type="text/css">
+span {
+    display: inline-block;
+    width: 200px;
+    text-align: left;
+}
+body {font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    padding-top: 65px; 
+}
+
+/* Top Navbar */
+.navbar {
+  overflow: hidden;
+  background-color: #0e387a;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  text-decoration: none; /* Remove underline */
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right; /* Float a link to the right */
+}
+
+.navbar a:hover {
+  background: #9fafca;
+  color: black;
+}
+
+
+/* Bottom Navbar */
+.bottomnavbar {
+  overflow: hidden;
+  background-color: #0e387a;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.bottomnavbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.bottomnavbar a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/home">Home</a>
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+        <a href="/cart" class="right">Cart</a>
+      </div>
+  
+    <div align="center">
+        <h2>Signup Succeeded!</h2>
+        <span>Full name:</span><span th:text="${user.name}"></span><br/>
+        <span>E-mail:</span><span th:text="${user.email}"></span><br/>
+        <span>Password:</span><span th:text="${user.password}"></span><br/>
+        <span>Profession:</span><span th:text="${user.profession}"></span><br/>
+        <span>Note:</span><span th:text="${user.note}"></span><br/>
+    </div>
+
+    <div class="bottomnavbar">
+        <a href="/about" class="active">About</a>
+        <a href="/faq">FAQ</a>
+        <a href="/contact">Contact</a>
+    </div>
+</body>
+</html>
