@@ -22,6 +22,7 @@
 
 
   <div class="main">
+
     <div class ="sliderbody">
       <div class ="slider">
           <div class ="slides">
@@ -84,6 +85,9 @@
       <div class="container">
         <h4><b>EPIC SHOES</b></h4> 
         <p>These shoes are amazing</p> 
+        <div class="popup" onclick="myFunction()">Click me!
+          <span class="popuptext" id="myPopup">Popup text...</span>
+        </div>
       </div>
     </div>
   </div>
@@ -93,5 +97,13 @@
     <a href="/faq">FAQ</a>
     <a href="/contact">Contact</a>
   </div>
+
+  <script>
+    // When the user clicks on <div>, open the popup
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+    </script>
 </body>
 </html>
