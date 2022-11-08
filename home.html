@@ -9,8 +9,8 @@
 </head>
 <body>
   <div class="header">
-    <h1>Welcome to the CODE Store!</h1>
-    <p><b>Here on the CODE store, you will be able to browse the various items that are available to purchase!</b></p>
+    <h1 style="font-family: Lucida Handwriting;">Welcome to the CODE Store!</h1>
+    <p style="font-family: MV Boli;"><b>Here on the CODE store, you will be able to browse the various items that are available to purchase!</b></p>
   </div>
   
   <div class="navbar">
@@ -22,6 +22,10 @@
 
 
   <div class="main">
+    <div style="text-align: center;">
+      <h1 style="font-family: Lucida Handwriting;"><b>Newly Added Items</b></h1>
+    </div>
+    
     <div class ="sliderbody">
       <div class ="slider">
           <div class ="slides">
@@ -35,16 +39,16 @@
               
               <!--slide images start-->
               <div class = "slide first">
-                  <img src="img/turkey1.jpg" alt="">
+                  <img src="img/hat2.jpg" alt="">
               </div>
               <div class="slide">
-                  <img src="img/garland1.jpg" alt="">
+                  <img src="img/pants2.jpg" alt="">
               </div>
               <div class="slide">
-                  <img src="img/turkey2.jpg" alt="">
+                  <img src="img/shoe2.jpg" alt="">
               </div>
               <div class="slide">
-                  <img src="img/pumpkin1.jpg" alt="">
+                  <img src="img/starwars2.jpg" alt="">
               </div>
               
               <!--automatic navigation start-->
@@ -77,15 +81,61 @@
       </script>
     </div>
 
-    <h3>Item Section</h3>
-
-    <div class="card">
-      <img src="shoe.jpg" alt="Avatar" style="width:100%">
-      <div class="container">
-        <h4><b>EPIC SHOES</b></h4> 
-        <p>These shoes are amazing</p> 
-      </div>
+    <div style="text-align: center;">
+      <h1 style="font-family: Lucida Handwriting;"><b>Items for You</b></h1>
     </div>
+
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="img/pants.jpg" alt="Avatar" style="width:100%">
+          <h4 style="font-family: MV Boli;"><b>Pants [Blue]</b></h4> 
+          <p style="font-family: MV Boli;">Slim Dress Pants</p>
+          <p>$60.00</p>  
+          <div class="popup" onclick="pop1()" style="font-family: MV Boli;"><b>Click here for item details</b>
+            <span class="popuptext" id="pop1">A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br> **Click popup again to close**</span>
+          </div>
+        </div>
+      </div>
+    
+      <div class="column">
+        <div class="card">
+          <img src="img/starwars.jpg" alt="Avatar" style="width:100%">
+          <h4 style="font-family: MV Boli;"><b>Star Wars Shirt</b></h4> 
+          <p style="font-family: MV Boli;">Cool Classic Star Wars Shirt</p>
+          <p>$30.00</p>  
+          <div class="popup" onclick="pop2()" style="font-family: MV Boli;"><b>Click here for item details</b>
+            <span class="popuptext" id="pop2">Show your allegiance to the Galactic empire with this comfy t-shirt <br><br> Size: L <br><br> Price: $30.00 + $3.99 shipping <br><br> **Click popup again to close**</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="column">
+        <div class="card">
+          <img src="img/shoe.jpg" alt="Avatar" style="width:100%">
+          <h4 style="font-family: MV Boli;"><b>Shoes [Blue]</b></h4> 
+          <p style="font-family: MV Boli;">Easy Slip-On Shoes</p>
+          <p>$50.00</p>  
+          <div class="popup" onclick="pop3()" style="font-family: MV Boli;"><b>Click here for item details</b>
+            <span class="popuptext" id="pop3">Houses for your feet <br><br> Size: 9 <br><br> Price: $50.00 + $5.99 shipping <br><br> **Click popup again to close**</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="column">
+        <div class="card">
+          <img src="img/hat.jpg" alt="Avatar" style="width:100%">
+          <h4 style="font-family: MV Boli;"><b>Hat [Brown]</b></h4> 
+          <p style="font-family: MV Boli;">Western Style Classic Cowboy Hat</p>
+          <p>$45.00</p>  
+          <div class="popup" onclick="pop4()" style="font-family: MV Boli;"><b>Click here for item details</b>
+            <span class="popuptext" id="pop4">The perfect accessory to wear every day for casual wear or for a costume party <br><br> Size: Unisex <br><br> Price: $45.00 + $7.99 shipping <br><br> **Click popup again to close**</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
   <div class="bottomnavbar">
@@ -93,5 +143,29 @@
     <a href="/faq">FAQ</a>
     <a href="/contact">Contact</a>
   </div>
+
+  <script>
+    // When the user clicks on <div>, open the popup
+    function pop1() {
+      var popup = document.getElementById("pop1");
+      popup.classList.toggle("show");
+    }
+
+    function pop2() {
+      var popup = document.getElementById("pop2");
+      popup.classList.toggle("show");
+    }
+
+    function pop3() {
+      var popup = document.getElementById("pop3");
+      popup.classList.toggle("show");
+    }
+
+    function pop4() {
+      var popup = document.getElementById("pop4");
+      popup.classList.toggle("show");
+    }
+
+    </script>
 </body>
 </html>

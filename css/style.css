@@ -1,9 +1,35 @@
 @charset "utf-8"; 
-body {margin:0;}
 
+body {font-family: Arial, Helvetica, sans-serif;
+  margin:0;
+  padding-top: 65px; 
+}
+
+/* Style the header */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #9fafca;
+  color: black;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 40px;
+}
+
+/* List Style */
+li{
+  list-style: none;
+  /* list-style: circle; */
+  /* list-style: disc; */
+  /* list-style: square; */
+}
+
+/* Top Navbar */
 .navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: #0e387a;
   position: fixed;
   top: 0;
   width: 100%;
@@ -17,149 +43,296 @@ body {margin:0;}
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  text-decoration: none; /* Remove underline */
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right; /* Float a link to the right */
 }
 
 .navbar a:hover {
-  background: #ddd;
+  background: #9fafca;
+  color: black;
+}
+
+/* Bottom Navbar */
+.bottomnavbar {
+  overflow: hidden;
+  background-color: #0e387a;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.bottomnavbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.bottomnavbar a:hover {
+  background: #f1f1f1;
   color: black;
 }
 
 .main {
   padding: 16px;
   margin-top: 30px;
-  height: 1500px; /* Used in this example to enable scrolling */
+  height: 1500px;
 }
 
-
-sliderbody{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background: #FFFFFF;
-    
+/* Cards for Items on Homepage */
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 23%;
+  padding: 0 10px;
 }
 
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+/* For Slider on Homepage */
+.sliderbody{
+  margin: 0px auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background: #FFFFFF;
+  
+}
 
 .slider{
-    width: 800px;
-    height: 500px;
-    border-radius: 10px;
-    overflow: hidden;
+  width: 800px;
+  height: 500px;
+  border-radius: 10px;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
 }
 
 .slides{
-    width: 500%;
-    height: 500px;
-    display: flex;
-    
+  width: 500%;
+  height: 500px;
+  display: flex;
+  
 }
 
 .slides input{
-    display: none;
-    
+  display: none;
+  
 }
 
 .slide{
-    width: 20%;
-    transition: 2s;
-    
+  width: 20%;
+  transition: 2s;
+  
 }
 
 .slide img{
-    width: 800px;
-    height: 500px;
-    
-    
+  width: 800px;
+  height: 500px;
+  
+  
 }
 
 .navigation-manual{
-    position: absolute;
-    width: 800px;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-    
+  position: absolute;
+  width: 800px;
+  margin-top: -40px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  
 }
 
 .manual-btn{
-    border: 2px solid #9fafca;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
+  border: 2px solid #9fafca;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
 }
 
 .manual-btn:not(:last-child){
-    margin-right: 40px;
-    
+  margin-right: 40px;
+  
 }
 
 .manual-btn:hover{
-    background: #9fafca;
+  background: #9fafca;
 }
 
 
 #radio1:checked ~ .first{
-    margin-left: 0;
-    
+  margin-left: 0;
+  
 }
 
 #radio2:checked ~ .first{
-    margin-left: -20%;
-    
+  margin-left: -20%;
+  
 }
 
 #radio3:checked ~ .first{
-    margin-left: -40%;
-    
+  margin-left: -40%;
+  
 }
 
 #radio4:checked ~ .first{
-    margin-left: -60%;
-    
+  margin-left: -60%;
+  
 }
 
-
 .navigation-auto{
-    position: absolute;
-    display: flex;
-    width: 800px;
-    justify-content: center;
-    margin-top: 460px;
+  position: absolute;
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 460px;
 }
 
 .navigation-auto div{
-    border: 2px solid #9fafca;
-    padding: 5px;
-    border-radius: 10px;
-    transition: 1s;
+  border: 2px solid #9fafca;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
 }
 
 .navigation-auto div:not(:last-child){
-    margin-right: 40px;
-    
+  margin-right: 40px;
+  
 }
 
 #radio1:checked ~ .navigation-auto .auto-btn1{
-    background: #9fafca;
-    
+  background: #9fafca;
+  
 }
 
 #radio2:checked ~ .navigation-auto .auto-btn2{
-    background: #9fafca;
-    
+  background: #9fafca;
+  
 }
 
 #radio3:checked ~ .navigation-auto .auto-btn3{
-    background: #9fafca;
-    
+  background: #9fafca;
+  
 }
 
 #radio4:checked ~ .navigation-auto .auto-btn4{
-    background: #9fafca ;
-    
+  background: #9fafca ;
+  
 }
 
 
+/* For Sign Up Form */
+button {
+  padding: 10px;
+}
+span {
+  color: red;
+  font-style: italic;
+}
+form {
+  display: table;
+}
+form div {
+  display: table-row;
+}
+.flabel, input, span, select {
+  display: table-cell;
+  margin: 5px;
+  text-align: left;		
+}
+input[type=text], input[type=password], select, textarea {
+  width: 200px;
+  margin: 5px;
+}
 
+form div div {
+  display: table-cell;
+}
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
