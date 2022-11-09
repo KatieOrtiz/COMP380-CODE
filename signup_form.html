@@ -16,29 +16,26 @@
 
     <div align="center">
       <h1>User Signup</h1>
+      <h2 style="color:red;">DEMO ONLY - Full functionality of user signup is not available</h2>
       <form action="#" th:action="@{/signup}" method="post" th:object="${user}">
         <div>
         <label class="flabel">Full name:</label>
         <input type="text" th:field="*{name}" /><br/>
-        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Full name error</span>
         </div>
         
         <div>
         <label class="flabel">E-mail:</label>
         <input type="text" th:field="*{email}" />
-        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail error</span>
         </div>
         
         <div>		
         <label class="flabel">Password:</label>
         <input type="password" th:field="*{password}" />
-        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</span>
         </div>
   
         <div>
         <label class="flabel">Birthday:</label>
         <input type="date" th:field="*{birthday}" />
-        <span th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">Birthday error</span>
         </div>
         
         <div>
@@ -46,13 +43,11 @@
         <select th:field="*{profession}">
           <option th:each="p : ${listProfession}" th:value="${p}" th:text="${p}" />
         </select>
-        <span th:if="${#fields.hasErrors('profession')}" th:errors="*{profession}">Profession error</span>
         </div>
      
         <div>
         <label class="flabel">Note:</label>
         <textarea rows="5" cols="25" th:field="*{note}"></textarea>
-        <span th:if="${#fields.hasErrors('note')}" th:errors="*{note}">Note error</span>
         </div>
         
         <div>
