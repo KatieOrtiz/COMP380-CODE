@@ -325,6 +325,11 @@ form div div {
   animation: fadeIn 1s
 }
 
+/* To set the color of the shopping cart icon */
+.fa-cart-shopping {
+  color: #9fafca;
+}
+
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
   from {opacity: 0;}
