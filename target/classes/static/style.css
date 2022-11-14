@@ -76,7 +76,7 @@ li{
 }
 
 .bottomnavbar a:hover {
-  background: #f1f1f1;
+  background: #9fafca;
   color: black;
 }
 
@@ -339,4 +339,21 @@ form div div {
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
+}
+
+/* Add to Cart Button Styling */
+.button {
+  background-color: #0e387a; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button:hover {
+  background: #9fafca;
+  color: black;
 }
