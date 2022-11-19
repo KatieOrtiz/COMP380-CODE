@@ -43,6 +43,12 @@ public class EcommerceSiteController {
 		return "home";
 	}
 
+	@GetMapping("/checkout")
+	public String checkout() {		
+		return "checkout";
+	}
+
+
 	@GetMapping("/cart")
 	public String cart() {		
 		return "cart";
