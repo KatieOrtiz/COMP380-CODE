@@ -17,10 +17,10 @@
         </a>
     </div>
 
-    <div align="center">
-      <h1>User Signup</h1>
-      <h2 style="color:red;">DEMO ONLY - Full functionality of user signup is not available</h2>
+    <div class="center">     
       <form action="#" th:action="@{/signup}" method="post" th:object="${user}">
+        <h1 style="font-family: Lucida Handwriting; ">User Signup</h1>
+        <h2 style="color:red;">DEMO ONLY - Full functionality of user signup is not available</h2>
         <div>
         <label class="flabel">Full name:</label>
         <input type="text" th:field="*{name}" /><br/>
@@ -53,11 +53,8 @@
         <textarea rows="5" cols="25" th:field="*{note}"></textarea>
         </div>
         
-        <div>
-          <div></div>
-          <div><button type="submit">Signup</button></div>
-          <div></div>
-        </div>		
+        <input type="submit" value="Login" cent>
+        	
       </form>
     </div>
 
