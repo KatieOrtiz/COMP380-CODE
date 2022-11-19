@@ -326,9 +326,30 @@ form div div {
   animation: fadeIn 1s
 }
 
+.cart {
+  position: relative;
+  background-color: #fff;
+  color: #212529;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 4px;
+  top: 5px;
+}
+
+.cartAmount {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
+}
+
 /* To set the color of the shopping cart icon */
 .fa-cart-shopping {
-  color: #ffffff;
+  color: #000000;
 }
 
 /* Add animation (fade in the popup) */
