@@ -103,7 +103,6 @@
     </div> 
     <!-- end of hard code 4 items -->
 
-
   </div>
 
   <div class="bottomnavbar">
@@ -135,9 +134,9 @@
     }
   </script>
 
-  
+
   <script>
-          let shopItemsData = [
+    let shopItemsData = [
 {
   id: "item1",
   name: "Pants [Blue]",
@@ -174,13 +173,15 @@
 
     console.log(shop);
 
+    let basket = [];
+
     let generateShop = () => {
       return (shop.innerHTML= shopItemsData.map((x)=>{
         let {id, name, price, desc, img} = x;
         return `
         <div class="column">
           <div class="card">
-            <div class="item">
+            <div id=product-id-${id} class="item">
               <img src= ${img} alt="Avatar" style="width:100%">
               <h4 style="font-family: MV Boli;"><b>${name}</b></h4> 
               <p style="font-family: MV Boli;">${desc}</p>
@@ -190,18 +191,59 @@
               </div>
               <br><br>
               <div class="addCartButton">
-                <a href="/cart"  class="button">Add to Cart</a>
+                <button class="button" onclick="increment(${id})">Add to Cart</button>
+                <br><br>
+                <button class="button" onclick="decrement(${id})">Decrement</button>
+                <div id=${id} class="quantity">0</div>
               </div>
             </div>
           </div>
         </div>
-      `
-      }));
+      `;
+      })
+      .join(""));
     };
-
-    
+ 
 
     generateShop();
+
+    let increment = (id) => {
+      let selectedItem = id;
+      let search = basket.find((x) => x.id === selectedItem.id);
+
+      if (search === undefined) {
+        basket.push({
+          id: selectedItem.id,
+          item: 1,
+        });
+      } else {
+        search.item += 1;
+      }
+
+      // console.log(basket);
+      update(selectedItem.id);
+    };
+
+    let decrement = (id) => {
+      let selectedItem = id;
+      let search = basket.find((x) => x.id === selectedItem.id);
+
+      if (search.item === 0) return;
+      else {
+        search.item -= 1;
+      }
+
+      // console.log(basket);
+      update(selectedItem.id);
+    };
+
+    let update = (id) => {
+      let search = basket.find((x) => x.id === id);
+      // console.log(search); // This function gives "id: " and "item: "
+      console.log(search.item);
+      document.getElementById(id).innerHTML = search.item; // reference to: <div id=${id} class="quantity">0</div>
+    };
+
   </script>
 
 </body>
