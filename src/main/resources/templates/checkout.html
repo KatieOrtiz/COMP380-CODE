@@ -6,7 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 <script src="https://kit.fontawesome.com/35afca83d3.js" crossorigin="anonymous"></script>
-
+<style>
+  /*h2 element has a white line under to break up the page nicely  */
+  h2 {
+    border-bottom:10px solid white;
+    text-align:center;
+  }
+</style>
 </head>
 <body>  
   <div class="navbar">
@@ -21,9 +27,11 @@
   <div class="main">
     <h1 style="font-family: Lucida Handwriting; color: white;">Checkout</h1>
     
-    <h2 style="font-family: Lucida Handwriting; color: white;">Order Summary</h2>
+    <h2 style="font-family: Lucida Handwriting; color: white;" >Order Summary</h2>
 
+    <div align="center">
     <button class="orderbutton" onclick="confirmationFunction()"><b>Place Order</b></button>
+    </div>
 
     <script>
 
