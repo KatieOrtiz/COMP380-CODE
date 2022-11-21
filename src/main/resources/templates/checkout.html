@@ -21,6 +21,27 @@
   <div class="main">
     <h1 style="font-family: Lucida Handwriting; color: white;">Checkout</h1>
     
+    <h2 style="font-family: Lucida Handwriting; color: white;">Order Summary</h2>
+
+    <button class="orderbutton" onclick="confirmationFunction()"><b>Place Order</b></button>
+
+    <script>
+
+      //This function asks the customer to confirm that they want to place their order
+      function confirmationFunction() {
+        if (confirm("Press OK to place your order!")) {
+          orderPlaced();
+        } else {
+          
+        }
+      }
+
+      //This function confirms that the order was placed successfully, sends the email confirmation with order details, and redirects the user to the home page
+      function orderPlaced() {
+        alert("Your order was placed successfully!", location.href = "/home") //email functionality will go here
+      }
+ 
+      </script>
     </div>
 
   <div class="bottomnavbar">
