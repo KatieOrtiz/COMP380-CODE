@@ -26,8 +26,6 @@
     </a>
   </div>
 
-  
-
   <div class="main">
     <div style="text-align: center;">
       <h1 style="font-family: Lucida Handwriting;color: white;" ><b>Newly Added Items</b></h1>
@@ -93,15 +91,12 @@
       <h1 style="font-family: Lucida Handwriting;color: white;"><b>Items for You</b></h1>
     </div>
 
-    <!-- start of hard code 4 items -->
     <!-- class: for targeting CSS, id: for targeting js -->
     <div class="shop" id="shop">
       <div class="row">
         
       </div>
-    <!-- end of class: shop, id : shop -->
     </div> 
-    <!-- end of hard code 4 items -->
 
   </div>
 
@@ -111,6 +106,50 @@
     <a href="/contact">Contact</a>
   </div>
 
+  <!-- temp -->
+  <div class="title-price-x">
+    <h4>
+      <p>${search.name}</p>
+      <p>${search.price}</p>
+    </h4>        
+  </div>
+
+
+  <!-- Data.js -->
+  <script>
+    let shopItemsData = [
+      {
+        id: "item1",
+        name: "Pants [Blue]",
+        price: 60,
+        desc: "Slim Dress Pants",
+        img: "pants.jpg"  
+      },
+      {
+        id: "item2",
+        name: "Star Wars Shirt",
+        price: 30,
+        desc: "Cool Classic Star Wars Shirt",
+        img: "starwars.jpg"
+      },
+      {
+        id: "item3",
+        name: "Shoes [Blue]",
+        price: 50,
+        desc: "Easy Slip-On Shoes",
+        img: "shoe.jpg"
+      },
+      {
+        id: "item4",
+        name: "Hat [Brown]",
+        price: 45,
+        desc: "Western Style Classic Cowboy Hat",
+        img: "hat.jpg"
+      },
+    ];
+  </script>
+
+  <!-- main.js -->
   <script>
     // When the user clicks on <div>, open the popup
     function pop1() {
@@ -132,43 +171,8 @@
       var popup = document.getElementById("pop4");
       popup.classList.toggle("show");
     }
-  </script>
 
-
-  <script>
-    let shopItemsData = [
-{
-  id: "item1",
-  name: "Pants [Blue]",
-  price: 60,
-  desc: "Slim Dress Pants",
-  img: "pants.jpg"       
-},
-{
-  id: "item2",
-  name: "Star Wars Shirt",
-  price: 30,
-  desc: "Cool Classic Star Wars Shirt",
-  img: "starwars.jpg"
-},
-{
-  id: "item3",
-  name: "Shoes [Blue]",
-  price: 50,
-  desc: "Easy Slip-On Shoes",
-  img: "shoe.jpg"
-},
-{
-  id: "item4",
-  name: "Hat [Brown]",
-  price: 45,
-  desc: "Western Style Classic Cowboy Hat",
-  img: "hat.jpg"
-},
-];
-  </script>
-
-  <script>
+    // Use to target <div class="shop" id="shop">
     let shop = document.getElementById("shop");
 
     console.log(shop);
@@ -231,13 +235,16 @@
       let selectedItem = id;
       let search = basket.find((x) => x.id === selectedItem.id);
 
-      if (search.item === 0) return;
+      if (search === undefined) return;
+      else if (search.item === 0) return;
       else {
         search.item -= 1;
       }
-      localStorage.setItem("data", JSON.stringify(basket));
-      // console.log(basket);
+      
       update(selectedItem.id);
+      basket = basket.filter((x) => x.item !== 0);
+      console.log(basket);
+      localStorage.setItem("data", JSON.stringify(basket));
     };
 
     let update = (id) => {
@@ -260,4 +267,6 @@
   </script>
 
 </body>
+<!-- <script src="Data.js"></script> -->
+<!-- <script src="main.js"></script> -->
 </html>
