@@ -19,11 +19,12 @@
     <a href="/login">Login</a>
     <a href="/signup">Signup</a>
     <a href="/cart" class="right">
-      <i class="fa-lg fa-solid fa-cart-shopping"></i> Cart
+      <div class="cart">
+        <i class="fa-lg fa-solid fa-cart-shopping"></i>
+        <div id="cartAmount" class="cartAmount">0</div>
+      </div>
     </a>
   </div>
-
-  
 
   <div class="main">
     <div style="text-align: center;">
@@ -90,64 +91,12 @@
       <h1 style="font-family: Lucida Handwriting;color: white;"><b>Items for You</b></h1>
     </div>
 
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <img src="pants.jpg" alt="Avatar" style="width:100%">
-          <h4 style="font-family: MV Boli;"><b>Pants [Blue]</b></h4> 
-          <p style="font-family: MV Boli;">Slim Dress Pants</p>
-          <p>$60.00</p>  
-          <div class="popup" onclick="pop1()" style="font-family: MV Boli;"><b>Click here for item details</b>
-            <span class="popuptext" id="pop1">A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br> **Click popup again to close**</span>
-          </div>
-          <br><br>
-          <a href="/cart"  class="button">Add to Cart</a>
-        </div>
+    <!-- class: for targeting CSS, id: for targeting js -->
+    <div class="shop" id="shop">
+      <div class="row">
+        
       </div>
-    
-      <div class="column">
-        <div class="card">
-          <img src="starwars.jpg" alt="Avatar" style="width:100%">
-          <h4 style="font-family: MV Boli;"><b>Star Wars Shirt</b></h4> 
-          <p style="font-family: MV Boli;">Cool Classic Star Wars Shirt</p>
-          <p>$30.00</p>  
-          <div class="popup" onclick="pop2()" style="font-family: MV Boli;"><b>Click here for item details</b>
-            <span class="popuptext" id="pop2">Show your allegiance to the Galactic Empire with this comfy t-shirt <br><br> Size: L <br><br> Price: $30.00 + $3.99 shipping <br><br> **Click popup again to close**</span>
-          </div>
-          <br><br>
-          <a href="/cart"  class="button">Add to Cart</a>
-        </div>
-      </div>
-      
-      <div class="column">
-        <div class="card">
-          <img src="shoe.jpg" alt="Avatar" style="width:100%">
-          <h4 style="font-family: MV Boli;"><b>Shoes [Blue]</b></h4> 
-          <p style="font-family: MV Boli;">Easy Slip-On Shoes</p>
-          <p>$50.00</p>  
-          <div class="popup" onclick="pop3()" style="font-family: MV Boli;"><b>Click here for item details</b>
-            <span class="popuptext" id="pop3">Houses for your feet <br><br> Size: 9 <br><br> Price: $50.00 + $5.99 shipping <br><br> **Click popup again to close**</span>
-          </div>
-          <br><br>
-          <a href="/cart"  class="button">Add to Cart</a>
-        </div>
-      </div>
-      
-      <div class="column">
-        <div class="card">
-          <img src="hat.jpg" alt="Avatar" style="width:100%">
-          <h4 style="font-family: MV Boli;"><b>Hat [Brown]</b></h4> 
-          <p style="font-family: MV Boli;">Western Style Classic Cowboy Hat</p>
-          <p>$45.00</p>  
-          <div class="popup" onclick="pop4()" style="font-family: MV Boli;"><b>Click here for item details</b>
-            <span class="popuptext" id="pop4">The perfect accessory to wear every day for casual wear or for a costume party <br><br> Size: Unisex <br><br> Price: $45.00 + $7.99 shipping <br><br> **Click popup again to close**</span>
-          </div>
-          <br><br>
-          <a href="/cart"  class="button">Add to Cart</a>
-        </div>
-      </div>
-
-    </div>
+    </div> 
 
   </div>
 
@@ -157,6 +106,50 @@
     <a href="/contact">Contact</a>
   </div>
 
+  <!-- temp -->
+  <div class="title-price-x">
+    <h4>
+      <p>${search.name}</p>
+      <p>${search.price}</p>
+    </h4>        
+  </div>
+
+
+  <!-- Data.js -->
+  <script>
+    let shopItemsData = [
+      {
+        id: "item1",
+        name: "Pants [Blue]",
+        price: 60,
+        desc: "Slim Dress Pants",
+        img: "pants.jpg"  
+      },
+      {
+        id: "item2",
+        name: "Star Wars Shirt",
+        price: 30,
+        desc: "Cool Classic Star Wars Shirt",
+        img: "starwars.jpg"
+      },
+      {
+        id: "item3",
+        name: "Shoes [Blue]",
+        price: 50,
+        desc: "Easy Slip-On Shoes",
+        img: "shoe.jpg"
+      },
+      {
+        id: "item4",
+        name: "Hat [Brown]",
+        price: 45,
+        desc: "Western Style Classic Cowboy Hat",
+        img: "hat.jpg"
+      },
+    ];
+  </script>
+
+  <!-- main.js -->
   <script>
     // When the user clicks on <div>, open the popup
     function pop1() {
@@ -179,6 +172,101 @@
       popup.classList.toggle("show");
     }
 
-    </script>
+    // Use to target <div class="shop" id="shop">
+    let shop = document.getElementById("shop");
+
+    console.log(shop);
+
+    let basket = JSON.parse(localStorage.getItem("data")) || [];
+
+    let generateShop = () => {
+      return (shop.innerHTML= shopItemsData.map((x)=>{
+        let {id, name, price, desc, img} = x;
+        let search = basket.find((x)=>x.id === id) || []; // || ->  or return nothing
+        return `
+        <div class="column">
+          <div class="card">
+            <div id=product-id-${id} class="item">
+              <img src= ${img} alt="Avatar" style="width:100%">
+              <h4 style="font-family: MV Boli;"><b>${name}</b></h4> 
+              <p style="font-family: MV Boli;">${desc}</p>
+              <p>$${price}</p>  
+              <div class="popup" onclick="pop1()" style="font-family: MV Boli;"><b>Click here for item details</b>
+                <span class="popuptext" id="pop1">A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br> **Click popup again to close**</span>
+              </div>
+              <br><br>
+              <div class="addCartButton">
+                <button class="button" onclick="increment(${id})">Add to Cart</button>
+                <br><br>
+                <button class="button" onclick="decrement(${id})">Decrement</button>
+                <div id=${id} class="quantity">
+                  ${search.item === undefined ? 0 : search.item}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      })
+      .join(""));
+    };
+ 
+
+    generateShop();
+
+    let increment = (id) => {
+      let selectedItem = id;
+      let search = basket.find((x) => x.id === selectedItem.id);
+
+      if (search === undefined) {
+        basket.push({
+          id: selectedItem.id,
+          item: 1,
+        });
+      } else {
+        search.item += 1;
+      }
+      localStorage.setItem("data", JSON.stringify(basket));
+      // console.log(basket);
+      update(selectedItem.id);
+    };
+
+    let decrement = (id) => {
+      let selectedItem = id;
+      let search = basket.find((x) => x.id === selectedItem.id);
+
+      if (search === undefined) return;
+      else if (search.item === 0) return;
+      else {
+        search.item -= 1;
+      }
+      
+      update(selectedItem.id);
+      basket = basket.filter((x) => x.item !== 0);
+      console.log(basket);
+      localStorage.setItem("data", JSON.stringify(basket));
+    };
+
+    let update = (id) => {
+      let search = basket.find((x) => x.id === id);
+      // console.log(search); // This function gives "id: " and "item: "
+      // console.log(search.item);
+      document.getElementById(id).innerHTML = search.item; // reference to: <div id=${id} class="quantity">0</div>
+      calculation();
+    };
+
+    let calculation = () => {
+      let cartIcon = document.getElementById("cartAmount");
+      cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+    };
+
+    // Every time application loads, calculation() will run regardless
+    // Prevent un-updated itwm amount on cart-icon will page gets refresh
+    calculation();
+
+  </script>
+
 </body>
+<!-- <script src="Data.js"></script> -->
+<!-- <script src="main.js"></script> -->
 </html>

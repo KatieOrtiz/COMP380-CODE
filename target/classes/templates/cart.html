@@ -14,25 +14,140 @@
     <a href="/login">Login</a>
     <a href="/signup">Signup</a>
     <a href="/cart" class="right">
-      <i class="fa-lg fa-solid fa-cart-shopping"></i> Cart
+      <div class="cart">
+        <i class="fa-lg fa-solid fa-cart-shopping"></i>
+        <div id="cartAmount" class="cartAmount">0</div>
+      </div>
     </a>
   </div>
 
   <div class="main">
     <h1 style="font-family: Lucida Handwriting; color: white;">Cart</h1>
-        <div>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
-        </div>
-    </div>
+
+    <!-- Show items in cart -->
+    <div class="shopping-cart" id="shopping-cart"></div>
+
+    <!-- The buttons -->
+    <div class="text-center" id="label"></div>
+  </div>
+
 
   <div class="bottomnavbar">
     <a href="/about" class="active">About</a>
     <a href="/faq">FAQ</a>
     <a href="/contact">Contact</a>
   </div>
+
+  <!-- Data.js -->
+  <script>
+    let shopItemsData = [
+      {
+        id: "item1",
+        name: "Pants [Blue]",
+        price: 60,
+        desc: "Slim Dress Pants",
+        img: "pants.jpg"  
+      },
+      {
+        id: "item2",
+        name: "Star Wars Shirt",
+        price: 30,
+        desc: "Cool Classic Star Wars Shirt",
+        img: "starwars.jpg"
+      },
+      {
+        id: "item3",
+        name: "Shoes [Blue]",
+        price: 50,
+        desc: "Easy Slip-On Shoes",
+        img: "shoe.jpg"
+      },
+      {
+        id: "item4",
+        name: "Hat [Brown]",
+        price: 45,
+        desc: "Western Style Classic Cowboy Hat",
+        img: "hat.jpg"
+      },
+    ];
+  </script>
+
+  <!-- cart.js -->
+  <script>
+    let ShoppingCart = document.getElementById("shopping-cart");
+    let label = document.getElementById("label");
+
+    // console.log(shopItemsData);
+
+    /**
+     * ! Basket to hold all the selected items
+     * ? the getItem part is retrieving data from the local storage
+     * ? if local storage is blank, basket becomes an empty array
+     */
+
+    let basket = JSON.parse(localStorage.getItem("data")) || [];
+
+    /**
+     * ! To calculate total amount of selected Items
+     */
+
+    let calculation = () => {
+      let cartIcon = document.getElementById("cartAmount");
+      cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+    };
+
+    calculation();
+
+    /**
+     * ! Generates the Cart Page with product cards composed of
+     * ! images, title, price, buttons, & Total price
+     * ? When basket is blank -> show's Cart is Empty
+     */
+
+    let generateCartItems = () => {
+      if(basket.length !== 0) {
+        console.log("Items in basket");
+        return (ShoppingCart.innerHTML = basket
+          .map((x)=>{ // object: x targets id in local storage
+            console.log(x);
+            let {id,item} = x; // x = basket 
+            // y = shopItemsData, to match id in basket with id in shopItemsData
+            // y.id is from shopItemsData & id is from x or basket
+            let search = shopItemsData.find((y)=>y.id === id) || [];
+            return `
+            <div class="cart-item"> 
+              <img width=250px src="${search.img}" alt="">
+              <div class="title-price-x">
+                <div class="title-price-x2">
+                  <h4>
+                    <p>${search.name}</p>
+                    <p>$ ${search.price}</p>
+                  </h4>        
+                </div>                
+              </div>
+
+              <div class="cart-buttons">
+
+              </div>
+            </div> 
+            `;
+        }).join(""));
+      }
+      else {
+        console.log("Empty basket");
+        ShoppingCart.innerHTML = "";
+        label.innerHTML = `
+        <h2>Cart is Empty</h2>
+        <a href="/home">
+          <button class="HomeBtn">Back to Home</button>
+        </a>
+        `;
+      }
+    };
+
+    generateCartItems();
+
+    
+  </script>
 </body>
 </html>
