@@ -240,8 +240,14 @@
     let update = (id) => {
       let search = basket.find((x) => x.id === id);
       // console.log(search); // This function gives "id: " and "item: "
-      console.log(search.item);
+      // console.log(search.item);
       document.getElementById(id).innerHTML = search.item; // reference to: <div id=${id} class="quantity">0</div>
+      calculation();
+    };
+
+    let calculation = () => {
+      let cartIcon = document.getElementById("cartAmount");
+      cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
     };
 
   </script>
