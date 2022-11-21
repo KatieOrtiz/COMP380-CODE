@@ -93,64 +93,110 @@
       <h1 style="font-family: Lucida Handwriting;color: white;"><b>Items for You</b></h1>
     </div>
 
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <img src="pants.jpg" alt="Avatar" style="width:100%">
-          <h4 style="font-family: MV Boli;"><b>Pants [Blue]</b></h4> 
-          <p style="font-family: MV Boli;">Slim Dress Pants</p>
-          <p>$60.00</p>  
-          <div class="popup" onclick="pop1()" style="font-family: MV Boli;"><b>Click here for item details</b>
-            <span class="popuptext" id="pop1">A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br> **Click popup again to close**</span>
+    <!-- start of hard code 4 items -->
+    <!-- class: for targeting CSS, id: for targeting js -->
+    <div class="shop" id="shop">
+      <!-- css styling -->
+      <div class="row">
+        <!-- css styling -->
+        
+        <!-- start item 1 -->
+        <div class="column">
+          <!-- css styling -->
+          <div class="card">
+            <!-- Targeting each item -->
+            <!-- item1 -->
+            <div class="item">
+              <img src="pants.jpg" alt="Avatar" style="width:100%">
+              <h4 style="font-family: MV Boli;"><b>Pants [Blue]</b></h4> 
+              <p style="font-family: MV Boli;">Slim Dress Pants</p>
+              <p>$60.00</p>  
+              <div class="popup" onclick="pop1()" style="font-family: MV Boli;"><b>Click here for item details</b>
+                <span class="popuptext" id="pop1">A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br> **Click popup again to close**</span>
+              </div>
+              <!-- space in between-->
+              <br><br>
+              <div class="addCartButton">
+                <a href="/cart"  class="button">Add to Cart</a>
+              </div>
+            </div>
           </div>
-          <br><br>
-          <a href="/cart"  class="button">Add to Cart</a>
         </div>
-      </div>
-    
-      <div class="column">
-        <div class="card">
-          <img src="starwars.jpg" alt="Avatar" style="width:100%">
-          <h4 style="font-family: MV Boli;"><b>Star Wars Shirt</b></h4> 
-          <p style="font-family: MV Boli;">Cool Classic Star Wars Shirt</p>
-          <p>$30.00</p>  
-          <div class="popup" onclick="pop2()" style="font-family: MV Boli;"><b>Click here for item details</b>
-            <span class="popuptext" id="pop2">Show your allegiance to the Galactic Empire with this comfy t-shirt <br><br> Size: L <br><br> Price: $30.00 + $3.99 shipping <br><br> **Click popup again to close**</span>
-          </div>
-          <br><br>
-          <a href="/cart"  class="button">Add to Cart</a>
-        </div>
-      </div>
-      
-      <div class="column">
-        <div class="card">
-          <img src="shoe.jpg" alt="Avatar" style="width:100%">
-          <h4 style="font-family: MV Boli;"><b>Shoes [Blue]</b></h4> 
-          <p style="font-family: MV Boli;">Easy Slip-On Shoes</p>
-          <p>$50.00</p>  
-          <div class="popup" onclick="pop3()" style="font-family: MV Boli;"><b>Click here for item details</b>
-            <span class="popuptext" id="pop3">Houses for your feet <br><br> Size: 9 <br><br> Price: $50.00 + $5.99 shipping <br><br> **Click popup again to close**</span>
-          </div>
-          <br><br>
-          <a href="/cart"  class="button">Add to Cart</a>
-        </div>
-      </div>
-      
-      <div class="column">
-        <div class="card">
-          <img src="hat.jpg" alt="Avatar" style="width:100%">
-          <h4 style="font-family: MV Boli;"><b>Hat [Brown]</b></h4> 
-          <p style="font-family: MV Boli;">Western Style Classic Cowboy Hat</p>
-          <p>$45.00</p>  
-          <div class="popup" onclick="pop4()" style="font-family: MV Boli;"><b>Click here for item details</b>
-            <span class="popuptext" id="pop4">The perfect accessory to wear every day for casual wear or for a costume party <br><br> Size: Unisex <br><br> Price: $45.00 + $7.99 shipping <br><br> **Click popup again to close**</span>
-          </div>
-          <br><br>
-          <a href="/cart"  class="button">Add to Cart</a>
-        </div>
-      </div>
 
-    </div>
+        <!-- start item 2 -->
+        <div class="column">
+          <!-- css styling -->
+          <div class="card">
+            <!-- Targeting each item -->
+            <!-- item1 -->
+            <div class="item">
+              <img src="starwars.jpg" alt="Avatar" style="width:100%">
+              <h4 style="font-family: MV Boli;"><b>Star Wars Shirt</b></h4> 
+              <p style="font-family: MV Boli;">Cool Classic Star Wars Shirt</p>
+              <p>$30.00</p>  
+              <div class="popup" onclick="pop2()" style="font-family: MV Boli;"><b>Click here for item details</b>
+                <span class="popuptext" id="pop2">Show your allegiance to the Galactic Empire with this comfy t-shirt <br><br> Size: L <br><br> Price: $30.00 + $3.99 shipping <br><br> **Click popup again to close**</span>
+              </div>
+              <!-- space in between-->
+              <br><br>
+              <div class="addCartButton">
+                <a href="/cart"  class="button">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- start item 3 -->
+        <div class="column">
+          <!-- css styling -->
+          <div class="card">
+            <!-- Targeting each item -->
+            <!-- item1 -->
+            <div class="item">
+              <img src="shoe.jpg" alt="Avatar" style="width:100%">
+              <h4 style="font-family: MV Boli;"><b>Shoes [Blue]</b></h4> 
+              <p style="font-family: MV Boli;">Easy Slip-On Shoes</p>
+              <p>$50.00</p>  
+              <div class="popup" onclick="pop3()" style="font-family: MV Boli;"><b>Click here for item details</b>
+                <span class="popuptext" id="pop3">Houses for your feet <br><br> Size: 9 <br><br> Price: $50.00 + $5.99 shipping <br><br> **Click popup again to close**</span>
+              </div>
+              <!-- space in between-->
+              <br><br>
+              <div class="addCartButton">
+                <a href="/cart"  class="button">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- start item 4 -->
+        <div class="column">
+          <!-- css styling -->
+          <div class="card">
+            <!-- Targeting each item -->
+            <!-- item1 -->
+            <div class="item">
+              <img src="hat.jpg" alt="Avatar" style="width:100%">
+              <h4 style="font-family: MV Boli;"><b>Hat [Brown]</b></h4> 
+              <p style="font-family: MV Boli;">Western Style Classic Cowboy Hat</p>
+              <p>$45.00</p>  
+              <div class="popup" onclick="pop4()" style="font-family: MV Boli;"><b>Click here for item details</b>
+                <span class="popuptext" id="pop4">The perfect accessory to wear every day for casual wear or for a costume party <br><br> Size: Unisex <br><br> Price: $45.00 + $7.99 shipping <br><br> **Click popup again to close**</span>
+              </div>
+              <!-- space in between-->
+              <br><br>
+              <div class="addCartButton">
+                <a href="/cart"  class="button">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- end of class: row -->
+      </div>
+    <!-- end of class: shop, id : shop -->
+    </div> 
+    <!-- end of hard code 4 items -->
+
 
   </div>
 
@@ -182,6 +228,6 @@
       popup.classList.toggle("show");
     }
 
-    </script>
+  </script>
 </body>
 </html>
