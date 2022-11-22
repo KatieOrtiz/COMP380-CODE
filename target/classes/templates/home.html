@@ -106,9 +106,6 @@
     <a href="/contact">Contact</a>
   </div>
 
-
-
-
   <!-- Data.js -->
   <script>
     let shopItemsData = [
@@ -116,28 +113,36 @@
         id: "item1",
         name: "Pants [Blue]",
         price: 60,
+        shipping: 4.99,
         desc: "Slim Dress Pants",
+        details: "<b> ***Details for Pants [Blue]*** <br><br> A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br></b>",
         img: "pants.jpg"  
       },
       {
         id: "item2",
         name: "Star Wars Shirt",
         price: 30,
+        shipping: 3.99,
         desc: "Cool Classic Star Wars Shirt",
+        details: "<b> ***Details for Star Wars Shirt*** <br><br> Show your allegiance to the Galactic Empire with this comfy t-shirt <br><br> Size: L <br><br> Price: $30.00 + $3.99 shipping <br><br></b>",
         img: "starwars.jpg"
       },
       {
         id: "item3",
         name: "Shoes [Blue]",
         price: 50,
+        shipping: 5.99,
         desc: "Easy Slip-On Shoes",
+        details: "<b> ***Details for Easy Slip-On Shoes*** <br><br> Houses for your feet <br><br> Size: 9 <br><br> Price: $50.00 + $5.99 shipping <br><br></b>",
         img: "shoe.jpg"
       },
       {
         id: "item4",
         name: "Hat [Brown]",
         price: 45,
+        shipping: 7.99,
         desc: "Western Style Classic Cowboy Hat",
+        details: "<b> ***Details for Hat [Brown]*** <br><br> The perfect accessory to wear every day for casual wear or for a costume party <br><br> Size: Unisex <br><br> Price: $45.00 + $7.99 shipping <br><br></b>",
         img: "hat.jpg"
       },
     ];
@@ -145,27 +150,7 @@
 
   <!-- main.js -->
   <script>
-    // When the user clicks on <div>, open the popup
-    function pop1() {
-      var popup = document.getElementById("pop1");
-      popup.classList.toggle("show");
-    }
-
-    function pop2() {
-      var popup = document.getElementById("pop2");
-      popup.classList.toggle("show");
-    }
-
-    function pop3() {
-      var popup = document.getElementById("pop3");
-      popup.classList.toggle("show");
-    }
-
-    function pop4() {
-      var popup = document.getElementById("pop4");
-      popup.classList.toggle("show");
-    }
-
+  
     // Use to target <div class="shop" id="shop">
     let shop = document.getElementById("shop");
 
@@ -175,7 +160,7 @@
 
     let generateShop = () => {
       return (shop.innerHTML= shopItemsData.map((x)=>{
-        let {id, name, price, desc, img} = x;
+        let {id, name, price, desc, details, img} = x;
         let search = basket.find((x)=>x.id === id) || []; // || ->  or return nothing
         return `
         <div class="column">
@@ -184,10 +169,14 @@
               <img src= ${img} alt="Avatar" style="width:100%">
               <h4 style="font-family: MV Boli;"><b>${name}</b></h4> 
               <p style="font-family: MV Boli;">${desc}</p>
-              <p>$${price}</p>  
-              <div class="popup" onclick="pop1()" style="font-family: MV Boli;"><b>Click here for item details</b>
-                <span class="popuptext" id="pop1">A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br> **Click popup again to close**</span>
+              <p>$${price}</p> 
+              <div>
+                <details>
+                  <summary style="font-family: MV Boli;"><b>Click here for item details</b></summary>
+                  <p>${details}</p>
+                </details>
               </div>
+          
               <br><br>
               <div class="addCartButton">
                 <button class="button" onclick="increment(${id})">Add to Cart</button>
@@ -255,9 +244,8 @@
     };
 
     // Every time application loads, calculation() will run regardless
-    // Prevent un-updated itwm amount on cart-icon will page gets refresh
+    // Prevent un-updated item amount on cart-icon will page gets refresh
     calculation();
-
   </script>
 
 </body>
