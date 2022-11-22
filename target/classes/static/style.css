@@ -399,6 +399,7 @@ form div div {
   color: black;
 }
 /* Style for cart page */
+}
 .shopping-cart {
   display: grid;
   grid-template-columns: repeat(1, 320px);
