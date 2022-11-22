@@ -61,7 +61,7 @@ li{
 .bottomnavbar {
   overflow: hidden;
   background-color: #0e387a;
-  position: relative;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
@@ -367,6 +367,7 @@ form div div {
 .button {
   background-color: #0e387a;
   border: none;
+  border-radius: 5px;
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -380,6 +381,23 @@ form div div {
   color: black;
 }
 
+
+/* Place Order Button Styling */
+.orderbutton {
+  background-color: #6699ff; 
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.orderbutton:hover {
+  background: #9fafca;
+  color: black;
 /* Style for cart page */
 .shopping-cart {
   display: grid;

@@ -35,6 +35,12 @@
         <input type="text" th:field="*{email}" />
         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail error</span>
         </div>
+
+        <div>
+          <label class="flabel">Username:</label>
+          <input type="text" th:field="*{username}"/>
+          <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username error</span>
+        </div>
         
         <div>		
         <label class="flabel">Password:</label>
@@ -63,7 +69,7 @@
         </div>
         
         
-          <input type="submit" value="Login" cent>
+          <input type="submit" value="Sign Up" cent>
       		
       </form>
     </div>
