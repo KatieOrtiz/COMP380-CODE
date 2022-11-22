@@ -19,7 +19,10 @@
     <a href="https://katieortiz.github.io/COMP380-CODE/login">Login</a>
     <a href="https://katieortiz.github.io/COMP380-CODE/signup_form">Signup</a>
     <a href="https://katieortiz.github.io/COMP380-CODE/cart" class="right">
-      <i class="fa-lg fa-solid fa-cart-shopping"></i> Cart
+      <div class="cart">
+        <i class="fa-lg fa-solid fa-cart-shopping"></i>
+        <div id="cartAmount" class="cartAmount">0</div>
+      </div>
     </a>
   </div>
 
@@ -87,65 +90,12 @@
     <div style="text-align: center;">
       <h1 style="font-family: Lucida Handwriting;color: white;"><b>Items for You</b></h1>
     </div>
-
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <img src="img/pants.jpg" alt="Avatar" style="width:100%">
-          <h4 style="font-family: MV Boli;"><b>Pants [Blue]</b></h4> 
-          <p style="font-family: MV Boli;">Slim Dress Pants</p>
-          <p>$60.00</p>  
-          <div class="popup" onclick="pop1()" style="font-family: MV Boli;"><b>Click here for item details</b>
-            <span class="popuptext" id="pop1">A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br> **Click popup again to close**</span>
-          </div>
-          <br><br>
-          <a href="https://katieortiz.github.io/COMP380-CODE/cart"  class="button">Add to Cart</a>
-        </div>
+    <!-- class: for targeting CSS, id: for targeting js -->
+    <div class="shop" id="shop">
+      <div class="row">
+        
       </div>
-    
-      <div class="column">
-        <div class="card">
-          <img src="img/starwars.jpg" alt="Avatar" style="width:100%">
-          <h4 style="font-family: MV Boli;"><b>Star Wars Shirt</b></h4> 
-          <p style="font-family: MV Boli;">Cool Classic Star Wars Shirt</p>
-          <p>$30.00</p>  
-          <div class="popup" onclick="pop2()" style="font-family: MV Boli;"><b>Click here for item details</b>
-            <span class="popuptext" id="pop2">Show your allegiance to the Galactic Empire with this comfy t-shirt <br><br> Size: L <br><br> Price: $30.00 + $3.99 shipping <br><br> **Click popup again to close**</span>
-          </div>
-          <br><br>
-          <a href="https://katieortiz.github.io/COMP380-CODE/cart"  class="button">Add to Cart</a>
-        </div>
-      </div>
-      
-      <div class="column">
-        <div class="card">
-          <img src="img/shoe.jpg" alt="Avatar" style="width:100%">
-          <h4 style="font-family: MV Boli;"><b>Shoes [Blue]</b></h4> 
-          <p style="font-family: MV Boli;">Easy Slip-On Shoes</p>
-          <p>$50.00</p>  
-          <div class="popup" onclick="pop3()" style="font-family: MV Boli;"><b>Click here for item details</b>
-            <span class="popuptext" id="pop3">Houses for your feet <br><br> Size: 9 <br><br> Price: $50.00 + $5.99 shipping <br><br> **Click popup again to close**</span>
-          </div>
-          <br><br>
-          <a href="https://katieortiz.github.io/COMP380-CODE/cart"  class="button">Add to Cart</a>
-        </div>
-      </div>
-      
-      <div class="column">
-        <div class="card">
-          <img src="img/hat.jpg" alt="Avatar" style="width:100%">
-          <h4 style="font-family: MV Boli;"><b>Hat [Brown]</b></h4> 
-          <p style="font-family: MV Boli;">Western Style Classic Cowboy Hat</p>
-          <p>$45.00</p>  
-          <div class="popup" onclick="pop4()" style="font-family: MV Boli;"><b>Click here for item details</b>
-            <span class="popuptext" id="pop4">The perfect accessory to wear every day for casual wear or for a costume party <br><br> Size: Unisex <br><br> Price: $45.00 + $7.99 shipping <br><br> **Click popup again to close**</span>
-          </div>
-          <br><br>
-          <a href="https://katieortiz.github.io/COMP380-CODE/cart"  class="button">Add to Cart</a>
-        </div>
-      </div>
-
-    </div>
+    </div> 
 
   </div>
 
@@ -154,29 +104,147 @@
     <a href="https://katieortiz.github.io/COMP380-CODE/faq">FAQ</a>
     <a href="https://katieortiz.github.io/COMP380-CODE/contact">Contact</a>
   </div>
+ <!-- Data.js -->
+ <script>
+  let shopItemsData = [
+    {
+      id: "item1",
+      name: "Pants [Blue]",
+      price: 60,
+      shipping: 4.99,
+      desc: "Slim Dress Pants",
+      details: "<b> ***Details for Pants [Blue]*** <br><br> A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br></b>",
+      img: "pants.jpg"  
+    },
+    {
+      id: "item2",
+      name: "Star Wars Shirt",
+      price: 30,
+      shipping: 3.99,
+      desc: "Cool Classic Star Wars Shirt",
+      details: "<b> ***Details for Star Wars Shirt*** <br><br> Show your allegiance to the Galactic Empire with this comfy t-shirt <br><br> Size: L <br><br> Price: $30.00 + $3.99 shipping <br><br></b>",
+      img: "starwars.jpg"
+    },
+    {
+      id: "item3",
+      name: "Shoes [Blue]",
+      price: 50,
+      shipping: 5.99,
+      desc: "Easy Slip-On Shoes",
+      details: "<b> ***Details for Easy Slip-On Shoes*** <br><br> Houses for your feet <br><br> Size: 9 <br><br> Price: $50.00 + $5.99 shipping <br><br></b>",
+      img: "shoe.jpg"
+    },
+    {
+      id: "item4",
+      name: "Hat [Brown]",
+      price: 45,
+      shipping: 7.99,
+      desc: "Western Style Classic Cowboy Hat",
+      details: "<b> ***Details for Hat [Brown]*** <br><br> The perfect accessory to wear every day for casual wear or for a costume party <br><br> Size: Unisex <br><br> Price: $45.00 + $7.99 shipping <br><br></b>",
+      img: "hat.jpg"
+    },
+  ];
+</script>
 
-  <script>
-    // When the user clicks on <div>, open the popup
-    function pop1() {
-      var popup = document.getElementById("pop1");
-      popup.classList.toggle("show");
+<!-- main.js -->
+<script>
+
+  // Use to target <div class="shop" id="shop">
+  let shop = document.getElementById("shop");
+
+  console.log(shop);
+
+  let basket = JSON.parse(localStorage.getItem("data")) || [];
+
+  let generateShop = () => {
+    return (shop.innerHTML= shopItemsData.map((x)=>{
+      let {id, name, price, desc, details, img} = x;
+      let search = basket.find((x)=>x.id === id) || []; // || ->  or return nothing
+      return `
+      <div class="column">
+        <div class="card">
+          <div id=product-id-${id} class="item">
+            <img src= ${img} alt="Avatar" style="width:100%">
+            <h4 style="font-family: MV Boli;"><b>${name}</b></h4> 
+            <p style="font-family: MV Boli;">${desc}</p>
+            <p>$${price}</p> 
+            <div>
+              <details>
+                <summary style="font-family: MV Boli;"><b>Click here for item details</b></summary>
+                <p>${details}</p>
+              </details>
+            </div>
+        
+            <br><br>
+            <div class="addCartButton">
+              <button class="button" onclick="increment(${id})">Add to Cart</button>
+              <br><br>
+              <button class="button" onclick="decrement(${id})">Decrement</button>
+              <div id=${id} class="quantity">
+                ${search.item === undefined ? 0 : search.item}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    })
+    .join(""));
+  };
+
+
+  generateShop();
+
+  let increment = (id) => {
+    let selectedItem = id;
+    let search = basket.find((x) => x.id === selectedItem.id);
+
+    if (search === undefined) {
+      basket.push({
+        id: selectedItem.id,
+        item: 1,
+      });
+    } else {
+      search.item += 1;
     }
+    localStorage.setItem("data", JSON.stringify(basket));
+    // console.log(basket);
+    update(selectedItem.id);
+  };
 
-    function pop2() {
-      var popup = document.getElementById("pop2");
-      popup.classList.toggle("show");
+  let decrement = (id) => {
+    let selectedItem = id;
+    let search = basket.find((x) => x.id === selectedItem.id);
+
+    if (search === undefined) return;
+    else if (search.item === 0) return;
+    else {
+      search.item -= 1;
     }
+    
+    update(selectedItem.id);
+    basket = basket.filter((x) => x.item !== 0);
+    console.log(basket);
+    localStorage.setItem("data", JSON.stringify(basket));
+  };
 
-    function pop3() {
-      var popup = document.getElementById("pop3");
-      popup.classList.toggle("show");
-    }
+  let update = (id) => {
+    let search = basket.find((x) => x.id === id);
+    // console.log(search); // This function gives "id: " and "item: "
+    // console.log(search.item);
+    document.getElementById(id).innerHTML = search.item; // reference to: <div id=${id} class="quantity">0</div>
+    calculation();
+  };
 
-    function pop4() {
-      var popup = document.getElementById("pop4");
-      popup.classList.toggle("show");
-    }
+  let calculation = () => {
+    let cartIcon = document.getElementById("cartAmount");
+    cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+  };
 
-    </script>
+  // Every time application loads, calculation() will run regardless
+  // Prevent un-updated item amount on cart-icon will page gets refresh
+  calculation();
+</script>
+
 </body>
 </html>
