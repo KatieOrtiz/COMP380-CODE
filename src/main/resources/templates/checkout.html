@@ -49,7 +49,10 @@
 
       //This function confirms that the order was placed successfully, sends the email confirmation with order details, and redirects the user to the home page
       function orderPlaced() {
-        alert("Your order was placed successfully!", location.href = "/home") //email functionality will go here
+        alert("Your order was placed successfully!") //Windows displays to tell customer that their order was successfully placed
+        location.href="mailto:katie_kns@yahoo.com?subject=Order%20Confirmation&body=Order%20Summary%0D%0AItem%20Names%3A%0D%0AItem%20Prices%3A%0D%0AShipping%20Method%20and%20Price%3A%0D%0ATotal%20Price%3A"; //Email template opens in user's email app 
+        window.open('email'); //New tab opens and order confirmation is displayed
+        location.href = "/home"; //Customer is redirected to home on the original tab
       }
  
       </script>

@@ -43,6 +43,16 @@ public class EcommerceSiteController {
 	public String home() {		
 		return "home";
 	}
+	
+	@GetMapping("/email")
+	public String email() {		
+		return "email";
+	}
+	
+	@GetMapping("/order_confirmation")
+	public String order_confirmation() {		
+		return "order_confirmation";
+	}
 
 	@GetMapping("/checkout")
 	public String checkout() {		
