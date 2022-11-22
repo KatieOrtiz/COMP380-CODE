@@ -3,6 +3,7 @@
 body {font-family: Arial, Helvetica, sans-serif;
   margin:0;
   padding-top: 65px; 
+  background: linear-gradient(120deg,#0e387a,#9fafca);
 }
 
 /* Style the header */
@@ -56,21 +57,11 @@ li{
   color: black;
 }
 
-.navbar input[type=text] {
-  float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
-
-}
-
 /* Bottom Navbar */
 .bottomnavbar {
   overflow: hidden;
   background-color: #0e387a;
-  position: relative;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
@@ -86,7 +77,7 @@ li{
 }
 
 .bottomnavbar a:hover {
-  background: #f1f1f1;
+  background: #9fafca;
   color: black;
 }
 
@@ -138,7 +129,7 @@ li{
   display: flex;
   justify-content: center;
   text-align: center;
-  background: #FFFFFF;
+  background: transparent;
   
 }
 
@@ -349,4 +340,21 @@ form div div {
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
+}
+
+/* Add to Cart Button Styling */
+.button {
+  background-color: #0e387a; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button:hover {
+  background: #9fafca;
+  color: black;
 }

@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>CODE Store Signup Form</title>
-<link rel="stylesheet" href="style.css">
+<!--<link rel="stylesheet" href="style.css">-->
+<link rel="stylesheet" href="signupstyle.css">
 <script src="https://kit.fontawesome.com/35afca83d3.js" crossorigin="anonymous"></script>
 
 </head>
@@ -13,13 +14,16 @@
       <a href="/login">Login</a>
       <a href="/signup">Signup</a>
       <a href="/cart" class="right">
-        <i class="fa-lg fa-solid fa-cart-shopping"></i> Cart
+        <div class="cart">
+          <i class="fa-lg fa-solid fa-cart-shopping"></i>
+          <div id="cartAmount" class="cartAmount">0</div>
+        </div>
       </a>
     </div>
 
-    <div align="center">
-      <h1 style="font-family: Lucida Handwriting;">User Signup</h1>
+    <div class="center">
       <form action="#" th:action="@{/signup}" method="post" th:object="${user}">
+        <h1 style="font-family: Lucida Handwriting; ">User Signup</h1>
         <div>
         <label class="flabel">Full name:</label>
         <input type="text" th:field="*{name}" /><br/>
@@ -30,6 +34,12 @@
         <label class="flabel">E-mail:</label>
         <input type="text" th:field="*{email}" />
         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail error</span>
+        </div>
+
+        <div>
+          <label class="flabel">Username:</label>
+          <input type="text" th:field="*{username}"/>
+          <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username error</span>
         </div>
         
         <div>		
@@ -58,11 +68,9 @@
         <span th:if="${#fields.hasErrors('note')}" th:errors="*{note}">Note error</span>
         </div>
         
-        <div>
-          <div></div>
-          <div><button type="submit">Signup</button></div>
-          <div></div>
-        </div>		
+        
+          <input type="submit" value="Sign Up" cent>
+      		
       </form>
     </div>
 

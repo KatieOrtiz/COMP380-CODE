@@ -1,1 +1,1 @@
-User [name=Katrina Scott, email=katie_kns@yahoo.com, note=, birthday=Fri Jan 07 00:11:00 PST 2022, profession=Developer]
+username= firehero1416 password= firehero1416 name= Steven Lopez email= steven.lopez.558@my.csun.edu note=  birthday= Mon Jan 03 00:11:00 PST 2022 profession= Developer]

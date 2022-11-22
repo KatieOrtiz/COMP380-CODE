@@ -2,8 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>CODE Store Signup Success</title>
-<link rel="stylesheet" href="css/style.css">
+<title>CODE Store Login Success</title>
+<link rel="stylesheet" href="css/loginstyle.css">
+<script src="https://kit.fontawesome.com/35afca83d3.js" crossorigin="anonymous"></script>
 
 <!--Style specifically for signup confirmation-->
 <style type="text/css"> 
@@ -23,22 +24,23 @@ span {
         <a href="https://katieortiz.github.io/COMP380-CODE/signup_form">Signup</a>
         <a href="https://katieortiz.github.io/COMP380-CODE/cart" class="right">
             <i class="fa-lg fa-solid fa-cart-shopping"></i> Cart
-        </a>
+          </a>
       </div>
-  
-    <div align="center">
-        <h2>Signup Succeeded!</h2>
-        <span>Full name:</span><span th:text="${user.name}"></span><br/>
-        <span>E-mail:</span><span th:text="${user.email}"></span><br/>
-        <span>Password:</span><span th:text="${user.password}"></span><br/>
-        <span>Profession:</span><span th:text="${user.profession}"></span><br/>
-        <span>Note:</span><span th:text="${user.note}"></span><br/>
+
+      
+    <div class="center">
+        <h2 style="font-family: Lucida Handwriting; color: black;" >Login Successful!</h2>
+        <center>Welcome <br/> </center> 
+        <center th:text="${user.name}"></center> <br/>
+        <center><a href="https://katieortiz.github.io/COMP380-CODE/login"><input type="submit" value="Logout"></a></center>
+        
+        <br/>
     </div>
 
     <div class="bottomnavbar">
-       <a href="https://katieortiz.github.io/COMP380-CODE/about">About</a>
-       <a href="https://katieortiz.github.io/COMP380-CODE/faq">FAQ</a>
-       <a href="https://katieortiz.github.io/COMP380-CODE/contact">Contact</a>
+    <a href="https://katieortiz.github.io/COMP380-CODE/about">About</a>
+    <a href="https://katieortiz.github.io/COMP380-CODE/faq">FAQ</a>
+    <a href="https://katieortiz.github.io/COMP380-CODE/contact">Contact</a>
     </div>
 </body>
 </html>

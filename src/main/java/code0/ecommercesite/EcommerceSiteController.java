@@ -1,5 +1,6 @@
 package code0.ecommercesite;
 
+
 import java.util.Arrays;
 import java.util.List;
 import javax.validation.Valid;
@@ -43,15 +44,52 @@ public class EcommerceSiteController {
 		return "home";
 	}
 
+	@GetMapping("/checkout")
+	public String checkout() {		
+		return "checkout";
+	}
+
+
 	@GetMapping("/cart")
 	public String cart() {		
 		return "cart";
 	}
 
+
 	@GetMapping("/login")
-	public String login() {		
+	public String showForm1(Model model) {
+		User user = new User();
+		model.addAttribute("user", user);
+		
+		List<String> listProfession = Arrays.asList("Developer", "Tester", "Architect");
+		model.addAttribute("listProfession", listProfession);
+		
 		return "login";
 	}
+
+	@PostMapping("/login")
+	public String submitForm1(@Valid @ModelAttribute("user") User user1, BindingResult bindingResult, Model model) {
+		//System.out.println(user);
+		readfile reading = new readfile();
+		reading.openFile();
+		reading.readFile();
+		String f = user1.getUsername();
+		String g = user1.getPassword();
+		String h = reading.getB();
+		String i = reading.getD();
+		if(f.equals(h)){
+			if(g.equals(i)){
+				user1.setName(reading.getF());
+				return "login_success";
+			}else{
+				return "login";
+			}
+		}
+		else{
+			return "login";
+		}
+	}
+
 	
 	@GetMapping("/about")
 	public String about() {		

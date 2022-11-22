@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>CODE Store Signup Success</title>
+<title>CODE Store Login Success</title>
 <link rel="stylesheet" href="loginstyle.css">
 <script src="https://kit.fontawesome.com/35afca83d3.js" crossorigin="anonymous"></script>
 
@@ -23,21 +23,18 @@ span {
         <a href="/login">Login</a>
         <a href="/signup">Signup</a>
         <a href="/cart" class="right">
-            <div class="cart">
-              <i class="fa-lg fa-solid fa-cart-shopping"></i>
-              <div id="cartAmount" class="cartAmount">0</div>
-            </div>
-        </a>
+            <i class="fa-lg fa-solid fa-cart-shopping"></i> Cart
+          </a>
       </div>
-  
+
+      
     <div class="center">
-        <h2 style="font-family: Lucida Handwriting; color: black;">Signup Succeeded!</h2>
-        &emsp;Full name:   <span th:text=" ${user.name}"></span><br/><br/>
-        &emsp;E-mail: &emsp;&nbsp;  <span th:text="${user.email}"></span><br/><br/>
-        &emsp;Username:&nbsp;<span th:text="${user.username}"></span><br/><br/>
-        &emsp;Password:&ensp;<span th:text="${user.password}"></span><br/><br/>
-        &emsp;Profession:  <span th:text="${user.profession}"></span><br/><br/>
-        &emsp;Note: &emsp; <span th:text="${user.note}"></span><br/><br/><br/><br/><br/>
+        <h2 style="font-family: Lucida Handwriting; color: black;" >Login Successful!</h2>
+        <center>Welcome <br/> </center> 
+        <center th:text="${user.name}"></center> <br/>
+        <center><a href="/login"><input type="submit" value="Logout"></a></center>
+        
+        <br/>
     </div>
 
     <div class="bottomnavbar">

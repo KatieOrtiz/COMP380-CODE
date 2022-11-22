@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>CODE Store Signup Success</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="loginstyle.css">
 <script src="https://kit.fontawesome.com/35afca83d3.js" crossorigin="anonymous"></script>
 
 <!--Style specifically for signup confirmation-->
@@ -23,17 +23,21 @@ span {
         <a href="/login">Login</a>
         <a href="/signup">Signup</a>
         <a href="/cart" class="right">
-            <i class="fa-lg fa-solid fa-cart-shopping"></i> Cart
-          </a>
+            <div class="cart">
+              <i class="fa-lg fa-solid fa-cart-shopping"></i>
+              <div id="cartAmount" class="cartAmount">0</div>
+            </div>
+        </a>
       </div>
   
-    <div align="center">
-        <h2 style="font-family: Lucida Handwriting;">Signup Succeeded!</h2>
-        <span>Full name:</span><span th:text="${user.name}"></span><br/>
-        <span>E-mail:</span><span th:text="${user.email}"></span><br/>
-        <span>Password:</span><span th:text="${user.password}"></span><br/>
-        <span>Profession:</span><span th:text="${user.profession}"></span><br/>
-        <span>Note:</span><span th:text="${user.note}"></span><br/>
+    <div class="center">
+        <h2 style="font-family: Lucida Handwriting; color: black;">Signup Succeeded!</h2>
+        &emsp;Full name:   <span th:text=" ${user.name}"></span><br/><br/>
+        &emsp;E-mail: &emsp;&nbsp;  <span th:text="${user.email}"></span><br/><br/>
+        &emsp;Username:&nbsp;<span th:text="${user.username}"></span><br/><br/>
+        &emsp;Password:&ensp;<span th:text="${user.password}"></span><br/><br/>
+        &emsp;Profession:  <span th:text="${user.profession}"></span><br/><br/>
+        &emsp;Note: &emsp; <span th:text="${user.note}"></span><br/><br/><br/><br/><br/>
     </div>
 
     <div class="bottomnavbar">
