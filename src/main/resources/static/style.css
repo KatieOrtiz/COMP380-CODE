@@ -398,6 +398,7 @@ form div div {
 .orderbutton:hover {
   background: #9fafca;
   color: black;
+}
 /* Style for cart page */
 .shopping-cart {
   display: grid;
