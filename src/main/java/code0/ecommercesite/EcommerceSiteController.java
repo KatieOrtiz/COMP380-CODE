@@ -59,13 +59,17 @@ public class EcommerceSiteController {
 		return "checkout";
 	}
 
+	@GetMapping("/products")
+	public String products(){
+		return "products";
+	}
 
 	@GetMapping("/cart")
 	public String cart() {		
 		return "cart";
 	}
 
-
+	//Mapping for /login, connects to login page 
 	@GetMapping("/login")
 	public String showForm1(Model model) {
 		User user = new User();
@@ -77,9 +81,10 @@ public class EcommerceSiteController {
 		return "login";
 	}
 
+	//go from login to loginsuccess, reads user.txt, if username and pw are same from what is entered to what is in user.txt, 
+	//it will allow to go to login success, otherwise stay in login
 	@PostMapping("/login")
 	public String submitForm1(@Valid @ModelAttribute("user") User user1, BindingResult bindingResult, Model model) {
-		//System.out.println(user);
 		readfile reading = new readfile();
 		reading.openFile();
 		reading.readFile();

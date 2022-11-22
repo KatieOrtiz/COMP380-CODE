@@ -12,11 +12,25 @@
     border-bottom:10px solid white;
     text-align:center;
   }
+  .main {
+  padding: 16px;
+  margin-top: 0;
+  height: 1500px;
+}
+
+label {
+  color: black;
+  font-style: none;
+  width: 33%;
+  display: inline-block;
+}
+
 </style>
 </head>
 <body>  
   <div class="navbar">
     <a href="/home">Home</a>
+    <a href="/products">Products</a>
     <a href="/login">Login</a>
     <a href="/signup">Signup</a>
     <a href="/cart" class="right">
@@ -28,10 +42,20 @@
   </div>
 
   <div class="main">
+    <!--<h1 style="font-family: Lucida Handwriting; color: white;">Checkout</h1>-->
     <h1 style="font-family: Lucida Handwriting; color: white;">Checkout</h1>
-    
     <h2 style="font-family: Lucida Handwriting; color: white;" >Order Summary</h2>
 
+    <div align="center" >
+      <label><b>Items</b></label>
+      <label><b>Price</b></label>
+      <label><b>Quantity</b></label>
+
+
+      <div class="" id="shopping-cart"  >
+
+      </div></div>
+    
     <div align="center">
     <button class="orderbutton" onclick="confirmationFunction()"><b>Place Order</b></button>
     </div>
@@ -55,6 +79,114 @@
         location.href = "/home"; //Customer is redirected to home on the original tab
       }
  
+      </script>
+       <script>
+        let shopItemsData = [
+          {
+            id: "item1",
+            name: "Pants [Blue]",
+            price: 60,
+            desc: "Slim Dress Pants",
+            img: "pants.jpg",  
+            //quant: quantity.getA()
+          },
+          {
+            id: "item2",
+            name: "Star Wars Shirt",
+            price: 30,
+            desc: "Cool Classic Star Wars Shirt",
+            img: "starwars.jpg",
+            //quant: quantity.getB()
+          },
+          {
+            id: "item3",
+            name: "Shoes [Blue]",
+            price: 50,
+            desc: "Easy Slip-On Shoes",
+            img: "shoe.jpg",
+            //quant: quantity.getC()
+          },
+          {
+            id: "item4",
+            name: "Hat [Brown]",
+            price: 45,
+            desc: "Western Style Classic Cowboy Hat",
+            img: "hat.jpg",
+            //quant: quantity.getD()
+          },
+        ];
+      </script>
+    
+      <!-- cart.js -->
+      <script>
+        let ShoppingCart = document.getElementById("shopping-cart");
+        let label = document.getElementById("label");
+    
+        // console.log(shopItemsData);
+    
+        /**
+         * ! Basket to hold all the selected items
+         * ? the getItem part is retrieving data from the local storage
+         * ? if local storage is blank, basket becomes an empty array
+         */
+    
+        let basket = JSON.parse(localStorage.getItem("data")) || [];
+    
+        /**
+         * ! To calculate total amount of selected Items
+         */
+    
+        let calculation = () => {
+          let cartIcon = document.getElementById("cartAmount");
+          cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+        };
+    
+        calculation();
+    
+        /**
+         * ! Generates the Cart Page with product cards composed of
+         * ! images, title, price, buttons, & Total price
+         * ? When basket is blank -> show's Cart is Empty
+         */
+    
+        let generateCartItems = () => {
+          if(basket.length !== 0) {
+            console.log("Items in basket");
+            return (ShoppingCart.innerHTML = basket
+              .map((x)=>{ // object: x targets id in local storage
+                console.log(x);
+                let {id,item} = x; // x = basket 
+                // y = shopItemsData, to match id in basket with id in shopItemsData
+                // y.id is from shopItemsData & id is from x or basket
+                let search = shopItemsData.find((y)=>y.id === id) || [];
+                return `
+               
+                      <h4>
+                        <label>${search.name}</label>
+                        <label>$ ${search.price}</label>     
+                        <label id=${id} class="quantity">
+                         
+                        </label>
+                      </h4>        
+
+                `;
+            }).join(""));
+          }
+          else {
+            console.log("Empty basket");
+            ShoppingCart.innerHTML = "";
+            label.innerHTML = `
+            <h2>Cart is Empty</h2>
+            <a href="/home">
+              <button class="HomeBtn">Back to Home</button>
+            </a>
+            `;
+          }
+        };
+    
+        generateCartItems();
+    
+        
       </script>
     </div>
 

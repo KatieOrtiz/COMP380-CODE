@@ -3,6 +3,7 @@ import java.io.*;
 import java.util.*;
 
 public class readfile{
+    //set variables
 	private Scanner x;
     String a;
     String b;
@@ -11,8 +12,8 @@ public class readfile{
     String e;
     String f;
     String g;
+    //opens file
 	public void openFile(){
-		
 		try{
 			x = new Scanner(new File("files/user.txt"));
 		}
@@ -20,7 +21,7 @@ public class readfile{
 			System.out.println("could not find file");
 		}
 	}
-
+    //puts the first strings from file into variables, namely username, password and first/last name
 	public void readFile(){
 		 a = x.next();
          b = x.next();
@@ -31,6 +32,8 @@ public class readfile{
          g = x.next();
 	}   
 
+
+    //return found variables
     public String getA(){
         return a;
     }
@@ -57,7 +60,7 @@ public class readfile{
     public String getG(){
         return g;
     }
-
+    //being polite, close file after used
     public void closeFile(){
         x.close();
     }

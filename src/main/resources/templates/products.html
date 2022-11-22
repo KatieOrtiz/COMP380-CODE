@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CODE Store About</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+
+<link rel="stylesheet" href="productstyle.css">
+<script src="https://kit.fontawesome.com/35afca83d3.js" crossorigin="anonymous"></script>
+
+</head>
+<body>  
+  <div class="navbar">
+    <a href="/home">Home</a>
+    <a href="/products">Products</a>
+    <a href="/login">Login</a>
+    <a href="/signup">Signup</a>
+    <a href="/cart" class="right">
+      <div class="cart">
+        <i class="fa-lg fa-solid fa-cart-shopping"></i>
+        <div id="cartAmount" class="cartAmount">0</div>
+      </div>
+    </a>
+  </div>
+<!--Search bar and white box at center of page-->
+  <script src="js/search.js"></script>
+  <section class="container">
+    <form>
+        <i class="fas fa-search"></i>
+        <input type="text" name="" id="search-item" placeholder="Search products" onkeyup="search()">
+    </form>
+    <!--list of products-->
+    <div class="product-list">
+        <div class="product">
+            <img src="hat.jpg" alt="">
+            <div class="p-details">
+                <h2>Brown Cowboy Hat</h2>
+                <h3>$45</h3>
+            </div> 
+        </div>
+        <div class="product">
+            <img src="hat2.jpg" alt="">
+            <div class="p-details">
+                <h2>Black Cowboy Hat</h2>
+                <h3>$25</h3>
+            </div> 
+        </div>
+        <div class="product">
+            <img src="pants.jpg" alt="">
+            <div class="p-details">
+                <h2>Formal Pants</h2>
+                <h3>$60</h3>
+            </div> 
+        </div>
+        <div class="product">
+            <img src="pants2.jpg" alt="">
+            <div class="p-details">
+                <h2>Casual Pants</h2>
+                <h3>$25</h3>
+            </div> 
+        </div>
+        <div class="product">
+            <img src="shoe.jpg" alt="">
+            <div class="p-details">
+                <h2>Awesome Blue Shoes</h2>
+                <h3>$50</h3>
+            </div> 
+        </div>
+        <div class="product">
+            <img src="shoe2.jpg" alt="">
+            <div class="p-details">
+                <h2>Amazing Red Shoes</h2>
+                <h3>$25</h3>
+            </div> 
+        </div>
+        <div class="product">
+            <img src="starwars.jpg" alt="">
+            <div class="p-details">
+                <h2>Star Wars Shirt Logo</h2>
+                <h3>$30</h3>
+            </div> 
+        </div>
+        <div class="product">
+            <img src="starwars2.jpg" alt="">
+            <div class="p-details">
+                <h2>Star Wars Shirt Image</h2>
+                <h3>$25</h3>
+            </div> 
+        </div>
+    </div>
+
+  </section>
+
+
+  <div class="bottomnavbar">
+    <a href="/about" class="active">About</a>
+    <a href="/faq">FAQ</a>
+    <a href="/contact">Contact</a>
+  </div>
+</body>
+</html>
