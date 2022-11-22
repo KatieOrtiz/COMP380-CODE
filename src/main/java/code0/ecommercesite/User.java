@@ -12,6 +12,7 @@ import java.io.IOException;  // Import the IOException class to handle errors
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class User {
+	//create variables, and set size limits to each
 	@Size(min = 3, max = 50)
 	private String name;
 	
@@ -38,6 +39,8 @@ public class User {
 	@NotBlank
 	private String profession;
 
+
+	//set or return variables when called
 	public String getName() {
 		return name;
 	}
@@ -98,12 +101,14 @@ public class User {
 	@Override
 	public String toString() {
 		try {
+			//writes to user.txt the information inputted from signup
 			FileWriter myWriter = new FileWriter("files/user.txt");
 			myWriter.write("username= " + username + " password= " + password + " name= " + name + " email= " + email + " note= "
 			+ note + " birthday= " + birthday + " profession= " + profession +  "]");
 			
 			myWriter.close();
 
+			//writes the name of person to name.txt the information inputted from signup
 			FileWriter otherWriter = new FileWriter("files/name.txt");
 			otherWriter.write(name);
 			otherWriter.close();
