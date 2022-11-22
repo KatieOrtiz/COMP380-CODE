@@ -20,6 +20,10 @@ public class User {
 	private String email;
 	
 	@NotBlank
+	@Size(min = 3, max = 20)
+	private String username;
+
+	@NotBlank
 	@Size(min = 8, max = 15)
 	private String password;
 	
@@ -48,6 +52,14 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getUsername(){
+		return username;
+	}
+
+	public void setUsername(String username){
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -87,18 +99,23 @@ public class User {
 	public String toString() {
 		try {
 			FileWriter myWriter = new FileWriter("files/user.txt");
-			myWriter.write("User [name=" + name + ", email=" + email + ", note="
-			+ note + ", birthday=" + birthday + ", profession=" + profession + "]");
+			myWriter.write("username= " + username + " password= " + password + " name= " + name + " email= " + email + " note= "
+			+ note + " birthday= " + birthday + " profession= " + profession +  "]");
 			
 			myWriter.close();
+
+			FileWriter otherWriter = new FileWriter("files/name.txt");
+			otherWriter.write(name);
+			otherWriter.close();
+
 			System.out.println("Successfully wrote to the file.");
 		  } catch (IOException e) {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
 		  }
 
-		return "User [name=" + name + ", email=" + email + ", password=" + password + ", note="
-				+ note + ", birthday=" + birthday + ", profession=" + profession + "]";
+		return "User [name=" + name + ", email=" + email + ", username=" + username + ", password=" + password + ", note="
+				+ note + ", birthday=" + birthday + ", profession=" + profession +  "]";
 	}
 
 
