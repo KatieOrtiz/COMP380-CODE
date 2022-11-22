@@ -61,7 +61,7 @@ li{
 .bottomnavbar {
   overflow: hidden;
   background-color: #0e387a;
-  position: relative;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }

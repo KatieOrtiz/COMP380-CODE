@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>CODE Store Signup Success</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="signupstyle.css">
 <script src="https://kit.fontawesome.com/35afca83d3.js" crossorigin="anonymous"></script>
 
 <!--Style specifically for signup confirmation-->
@@ -30,13 +30,13 @@ span {
         </a>
       </div>
   
-    <div align="center">
-        <h2 style="font-family: Lucida Handwriting; color: white;">Signup Succeeded!</h2>
-        <span>Full name:</span><span th:text="${user.name}"></span><br/>
-        <span>E-mail:</span><span th:text="${user.email}"></span><br/>
-        <span>Password:</span><span th:text="${user.password}"></span><br/>
-        <span>Profession:</span><span th:text="${user.profession}"></span><br/>
-        <span>Note:</span><span th:text="${user.note}"></span><br/>
+    <div class="center">
+        <h2 align="center" style="font-family: Lucida Handwriting; color: black;">Signup Succeeded!</h2>
+        <b><span>Full Name:</span></b><span th:text="${user.name}"></span><br/>
+        <b><span>E-mail:</span></b><span th:text="${user.email}"></span><br/>
+        <b><span>Password:</span></b><span th:text="${user.password}"></span><br/>
+        <b><span>Profession:</span></b><span th:text="${user.profession}"></span><br/>
+        <b><span>Note:</span></b><span th:text="${user.note}"></span><br/>
     </div>
 
     <div class="bottomnavbar">
