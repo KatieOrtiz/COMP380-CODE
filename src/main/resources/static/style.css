@@ -365,7 +365,7 @@ form div div {
 
 /* Add to Cart Button Styling */
 .button {
-  background-color: #0e387a; /* Green */
+  background-color: #0e387a;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -390,7 +390,7 @@ form div div {
 
 .text-center {
   text-align: center;
-  margin-bottom: 20px; /* gap underdeath */
+  margin-bottom: 20px; /* gap underneath */
 
 }
 
