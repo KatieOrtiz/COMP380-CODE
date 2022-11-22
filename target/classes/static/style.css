@@ -19,6 +19,7 @@ body {font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
 }
 
+
 /* List Style */
 li{
   list-style: none;
@@ -269,7 +270,7 @@ form {
 form div {
   display: table-row;
 }
-.flabel, input, span, select {
+.flabel, input,  select {
   display: table-cell;
   margin: 5px;
   text-align: left;		
@@ -399,7 +400,7 @@ form div div {
   color: black;
 }
 /* Style for cart page */
-}
+
 .shopping-cart {
   display: grid;
   grid-template-columns: repeat(1, 320px);
