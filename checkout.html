@@ -54,6 +54,121 @@
       }
  
       </script>
+           <script>
+        let shopItemsData = [
+          {
+            id: "item1",
+            name: "Pants [Blue]",
+            price: 60,
+            shipping: 4.99,
+            desc: "Slim Dress Pants",
+            details: "<b> ***Details for Pants [Blue]*** <br><br> A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br></b>",
+            img: "img/pants.jpg",  
+            //quant: quantity.getA()
+          },
+          {
+            id: "item2",
+            name: "Star Wars Shirt",
+            price: 30,
+            shipping: 3.99,
+            desc: "Cool Classic Star Wars Shirt",
+            details: "<b> ***Details for Star Wars Shirt*** <br><br> Show your allegiance to the Galactic Empire with this comfy t-shirt <br><br> Size: L <br><br> Price: $30.00 + $3.99 shipping <br><br></b>",
+            img: "img/starwars.jpg",
+            //quant: quantity.getB()
+          },
+          {
+            id: "item3",
+            name: "Shoes [Blue]",
+            price: 50,
+            shipping: 5.99,
+            desc: "Easy Slip-On Shoes",
+            details: "<b> ***Details for Easy Slip-On Shoes*** <br><br> Houses for your feet <br><br> Size: 9 <br><br> Price: $50.00 + $5.99 shipping <br><br></b>",
+            img: "img/shoe.jpg",
+            //quant: quantity.getC()
+          },
+          {
+            id: "item4",
+            name: "Hat [Brown]",
+            price: 45,
+            shipping: 7.99,
+            desc: "Western Style Classic Cowboy Hat",
+            details: "<b> ***Details for Hat [Brown]*** <br><br> The perfect accessory to wear every day for casual wear or for a costume party <br><br> Size: Unisex <br><br> Price: $45.00 + $7.99 shipping <br><br></b>",
+            img: "img/hat.jpg",
+            //quant: quantity.getD()
+          },
+        ];
+      </script>
+    
+      <!-- cart.js -->
+      <script>
+        let ShoppingCart = document.getElementById("shopping-cart");
+        let label = document.getElementById("label");
+    
+        // console.log(shopItemsData);
+    
+        /**
+         * ! Basket to hold all the selected items
+         * ? the getItem part is retrieving data from the local storage
+         * ? if local storage is blank, basket becomes an empty array
+         */
+    
+        let basket = JSON.parse(localStorage.getItem("data")) || [];
+    
+        /**
+         * ! To calculate total amount of selected Items
+         */
+    
+        let calculation = () => {
+          let cartIcon = document.getElementById("cartAmount");
+          cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+        };
+    
+        calculation();
+    
+        /**
+         * ! Generates the Cart Page with product cards composed of
+         * ! images, title, price, buttons, & Total price
+         * ? When basket is blank -> show's Cart is Empty
+         */
+    
+        let generateCartItems = () => {
+          if(basket.length !== 0) {
+            console.log("Items in basket");
+            return (ShoppingCart.innerHTML = basket
+              .map((x)=>{ // object: x targets id in local storage
+                console.log(x);
+                let {id,item} = x; // x = basket 
+                // y = shopItemsData, to match id in basket with id in shopItemsData
+                // y.id is from shopItemsData & id is from x or basket
+                let search = shopItemsData.find((y)=>y.id === id) || [];
+                return `
+               
+                      <h4>
+                        <label>${search.name}</label>
+                        <label>$ ${search.price}</label>     
+                        <label id=${id} class="quantity">
+                         
+                        </label>
+                      </h4>        
+                `;
+            }).join(""));
+          }
+          else {
+            console.log("Empty basket");
+            ShoppingCart.innerHTML = "";
+            label.innerHTML = `
+            <h2>Cart is Empty</h2>
+            <a href="/home">
+              <button class="HomeBtn">Back to Home</button>
+            </a>
+            `;
+          }
+        };
+    
+        generateCartItems();
+    
+        
+      </script>
     </div>
 
     <div class="bottomnavbar">
