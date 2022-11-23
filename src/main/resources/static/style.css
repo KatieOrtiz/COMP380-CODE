@@ -512,8 +512,15 @@ form div div {
   cursor: pointer;
 }
 
-/* does nothing */
 .quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+
+.cart-quantity {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
