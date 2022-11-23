@@ -76,7 +76,17 @@ body{
   }
 /* End: CSS style for cart icons */
 
-
+.left{
+  position: absolute;
+    padding-left: 15px;
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+.left submit{
+  padding-right: 15px;
+}
   /*form start*/
 .center{
     position: absolute;

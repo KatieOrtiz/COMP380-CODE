@@ -4,9 +4,13 @@
 <title>CODE Store Contact</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="signupstyle.css">
 <script src="https://kit.fontawesome.com/35afca83d3.js" crossorigin="anonymous"></script>
-
+<style>
+  input[type="submit"]{
+    width: 90%;
+  }
+</style>
 </head>
 <body>  
   <div class="navbar">
@@ -23,8 +27,31 @@
   </div>
 
   <div class="main">
-    <h1 style="font-family: Lucida Handwriting; color: white;">Contact Page</h1>
+    <br><br><br>
+    <center><h1 style="font-family: Lucida Handwriting; color: white;">Contact Us</h1></center>
+    
     </div>
+    <!--form that has the entries for people to send a message to the site-->
+    <div class="center" style="font-size:20px">
+    <form>
+        <label>Name:</label>
+        <input type="text" name="name"><br>
+        <label>Email:</label>
+        <input type="text" name="Email"><br>
+        <label>Note:</label>
+        <input type="text" name="note"><br>
+        <input type="submit" name="submit" onclick="confirmationFunction()">
+
+    </form>
+
+  </div>
+  <script>
+
+    //This function confirms the message was sent
+    function confirmationFunction() {
+      alert("Your message has been sent!")
+    }
+    </script>
 
   <div class="bottomnavbar">
     <a href="/about" class="active">About</a>
