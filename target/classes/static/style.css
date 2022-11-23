@@ -425,10 +425,6 @@ form div div {
   margin-top: 10px;
 }
 
-.title-price-x {
-  color: white;
-}
-
 .cart-item {
   border: 1px solid black;
   border-radius: 10px;
@@ -451,4 +447,93 @@ form div div {
 .emailbutton:hover {
   background: #9fafca;
   color: black;
+}
+
+/* cart page styling */
+.cart-item {
+  border: 2px solid #212529;
+  border-radius: 5px;
+  display: flex;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+
+.title-price-x {
+  width: 195px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 2px solid red; */
+}
+
+.title-price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.cart-item-price {
+  background-color: #212529;
+  color: white;
+  border-radius: 4px;
+  padding: 3px 6px;
+}
+
+/* "x" button */
+.bi-x-lg {
+  color: rgb(240, 155, 155);
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  font-size: 16px;
+}
+
+/* decrement button */
+.bi-dash-lg {
+  color: red;
+}
+
+/* increment button */
+.bi-plus-lg {
+  color: green;
+}
+
+/* does nothing */
+.quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.HomeBtn,
+.checkout,
+.removeAll {
+  background-color: #212529;
+  font-size: 26px;
+  color: white;
+  border: none;
+  padding: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.checkout {
+  background-color: rgb(27, 51, 158);
+}
+
+.removeAll {
+  background-color: rgb(142, 20, 20);
 }
