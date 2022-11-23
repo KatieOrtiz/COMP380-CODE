@@ -42,7 +42,6 @@ label {
   </div>
 
   <div class="main">
-    <!--<h1 style="font-family: Lucida Handwriting; color: white;">Checkout</h1>-->
     <h1 style="font-family: Lucida Handwriting; color: white;">Checkout</h1>
     <h2 style="font-family: Lucida Handwriting; color: white;" >Order Summary</h2>
 
@@ -54,8 +53,9 @@ label {
 
       <div class="" id="shopping-cart"  >
 
-      </div></div>
+    </div></div>
     
+    <br>
     <div align="center">
     <button class="orderbutton" onclick="confirmationFunction()"><b>Place Order</b></button>
     </div>
@@ -73,7 +73,10 @@ label {
 
       //This function confirms that the order was placed successfully, sends the email confirmation with order details, and redirects the user to the home page
       function orderPlaced() {
-        alert("Your order was placed successfully!", location.href = "/home") //email functionality will go here
+        alert("Your order was placed successfully!") //Windows displays to tell customer that their order was successfully placed
+        location.href="mailto:katie_kns@yahoo.com?subject=Order%20Confirmation&body=Dear%20Customer%2C%0D%0A%0D%0AThis%20is%20your%20confirmation%20receipt%20for%20the%20order%20you've%20placed%20on%20the%20CODE%20website!%20If%20you%20would%20like%20to%20track%20your%20order%2C%20the%20order%20number%20is%20101.%0D%0A%0D%0ASincerely%2C%0D%0AThe%20CODE%20Store%20Team"; //Email template opens in user's email app 
+        //window.open('email'); //New tab opens and order confirmation is displayed
+        location.href = "/home"; //Customer is redirected to home on the original tab
       }
  
       </script>
@@ -83,7 +86,9 @@ label {
             id: "item1",
             name: "Pants [Blue]",
             price: 60,
+            shipping: 4.99,
             desc: "Slim Dress Pants",
+            details: "<b> ***Details for Pants [Blue]*** <br><br> A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br></b>",
             img: "pants.jpg",  
             //quant: quantity.getA()
           },
@@ -91,7 +96,9 @@ label {
             id: "item2",
             name: "Star Wars Shirt",
             price: 30,
+            shipping: 3.99,
             desc: "Cool Classic Star Wars Shirt",
+            details: "<b> ***Details for Star Wars Shirt*** <br><br> Show your allegiance to the Galactic Empire with this comfy t-shirt <br><br> Size: L <br><br> Price: $30.00 + $3.99 shipping <br><br></b>",
             img: "starwars.jpg",
             //quant: quantity.getB()
           },
@@ -99,7 +106,9 @@ label {
             id: "item3",
             name: "Shoes [Blue]",
             price: 50,
+            shipping: 5.99,
             desc: "Easy Slip-On Shoes",
+            details: "<b> ***Details for Easy Slip-On Shoes*** <br><br> Houses for your feet <br><br> Size: 9 <br><br> Price: $50.00 + $5.99 shipping <br><br></b>",
             img: "shoe.jpg",
             //quant: quantity.getC()
           },
@@ -107,7 +116,9 @@ label {
             id: "item4",
             name: "Hat [Brown]",
             price: 45,
+            shipping: 7.99,
             desc: "Western Style Classic Cowboy Hat",
+            details: "<b> ***Details for Hat [Brown]*** <br><br> The perfect accessory to wear every day for casual wear or for a costume party <br><br> Size: Unisex <br><br> Price: $45.00 + $7.99 shipping <br><br></b>",
             img: "hat.jpg",
             //quant: quantity.getD()
           },
