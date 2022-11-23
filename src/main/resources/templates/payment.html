@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CODE Store Cart</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="checkout_style.css">
+<script src="https://kit.fontawesome.com/35afca83d3.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+</head>
+<body>  
+  <div class="navbar">
+    <a href="/home">Home</a>
+    <a href="/products">Products</a>
+    <a href="/login">Login</a>
+    <a href="/signup">Signup</a>
+    <a href="/cart" class="right">
+      <div class="cart">
+        <i class="fa-lg fa-solid fa-cart-shopping"></i>
+        <div id="cartAmount" class="cartAmount">0</div>
+      </div>
+    </a>
+  </div>
+
+
+  <div class="main">
+    <div class="wrapper">
+        <h2>Payment Form</h2>
+        <form action="" method="post">
+            <!--Account Information Start-->
+            <h4>Account</h4>
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="text" placeholder="Full Name" required class="name">
+                    <i class="fa fa-user icon"></i>
+                </div>
+                <div class="input_box">
+                    <input type="text" placeholder="Name on Card" required class="name">
+                    <i class="fa fa-user icon"></i>
+                </div>
+            </div>
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="email" placeholder="Email Address" required class="name">
+                    <i class="fa fa-envelope icon"></i>
+                </div>
+            </div>
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="text" placeholder="Address" required class="name">
+                    <i class="fa fa-map-marker icon" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="text" placeholder="City" required class="name">
+                    <i class="fa fa-institution icon"></i>
+                </div>
+            </div>
+            <!--Account Information End-->
+  
+  
+            <!--DOB & Gender Start-->
+            <div class="input_group">
+                <div class="input_box">
+                    <h4>Date Of Birth</h4>
+                    <input type="text" placeholder="DD" required class="dob">
+                    <input type="text" placeholder="MM" required class="dob">
+                    <input type="text" placeholder="YYYY" required class="dob">
+                </div>
+                <div class="input_box">
+                    <h4>Gender</h4>
+                    <input type="radio" name="gender" class="radio" id="b1" checked>
+                    <label for="b1">Male</label>
+                    <input type="radio" name="gender" class="radio" id="b2">
+                    <label for="b2">Female</label>
+                </div>
+            </div>
+            <!--DOB & Gender End-->
+  
+  
+            <!--Payment Details Start-->
+            <div class="input_group">
+                <div class="input_box">
+                    <h4>Payment Details</h4>
+                    <input type="radio" name="pay" class="radio" id="bc1" checked>
+                    <label for="bc1"><span>
+                            <i class="fa fa-cc-visa"></i>Credit Card</span></label>
+                    <input type="radio" name="pay" class="radio" id="bc2">
+                    <label for="bc2"><span>
+                            <i class="fa fa-cc-paypal"></i>Paypal</span></label>
+                </div>
+            </div>
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="tel" name="" class="name" placeholder="Card Number 1111-2222-3333-4444" required>
+                    <i class="fa fa-credit-card icon"></i>
+                </div>
+            </div>
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="tel" name="" class="name" placeholder="Card CVC 632" required>
+                    <i class="fa fa-user icon"></i>
+                </div>
+            </div>
+            <div class="input_group">
+                <div class="input_box">
+                    <div class="input_box">
+                        <input type="number" placeholder="Exp Month" required class="name">
+                        <i class="fa fa-calendar icon" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="input_box">
+                    <input type="number" placeholder="Exp Year" required class="name">
+                    <i class="fa fa-calendar-o icon" aria-hidden="true"></i>
+                </div>
+            </div>
+            <!--Payment Details End-->
+
+  
+        </form>
+      </div>
+  </div>
+
+        <!-- need work -->
+        <div class="confirm">
+            <a href="/checkout">
+                <button class="checkButton">Confirm</button>
+            </a>
+        </div>
+
+
+
+    
+    
+
+
+      <!-- cart.js -->
+    <script>
+        let ShoppingCart = document.getElementById("shopping-cart");
+        let label = document.getElementById("label");
+    
+        // console.log(shopItemsData);
+    
+        /**
+         * ! Basket to hold all the selected items
+         * ? the getItem part is retrieving data from the local storage
+         * ? if local storage is blank, basket becomes an empty array
+         */
+    
+        let basket = JSON.parse(localStorage.getItem("data")) || [];
+    
+        /**
+         * ! To calculate total amount of selected Items
+         */
+    
+        let calculation = () => {
+          let cartIcon = document.getElementById("cartAmount");
+          cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+        };
+    
+        calculation();
+    
+        /**
+         * ! Generates the Cart Page with product cards composed of
+         * ! images, title, price, buttons, & Total price
+         * ? When basket is blank -> show's Cart is Empty
+         */
+    
+        let generateCartItems = () => {
+          if(basket.length !== 0) {
+            console.log("Items in basket");
+            return (ShoppingCart.innerHTML = basket
+              .map((x)=>{ // object: x targets id in local storage
+                console.log(x);
+                let {id,item} = x; // x = basket 
+                // y = shopItemsData, to match id in basket with id in shopItemsData
+                // y.id is from shopItemsData & id is from x or basket
+                let search = shopItemsData.find((y)=>y.id === id) || [];
+                return `
+               
+                      <h4>
+                        <label>${search.name}</label>
+                        <label>$ ${search.price}</label>     
+                        <label id=${id} class="quantity">
+                         
+                        </label>
+                      </h4>        
+
+                `;
+            }).join(""));
+          }
+          else {
+            console.log("Empty basket");
+            ShoppingCart.innerHTML = "";
+            label.innerHTML = `
+            <h2>Cart is Empty</h2>
+            <a href="/home">
+              <button class="HomeBtn">Back to Home</button>
+            </a>
+            `;
+          }
+        };
+    
+        generateCartItems();
+    
+        
+    </script>
+
+  <div class="bottomnavbar">
+    <a href="/about" class="active">About</a>
+    <a href="/faq">FAQ</a>
+    <a href="/contact">Contact</a>
+  </div>
+</body>
+</html>

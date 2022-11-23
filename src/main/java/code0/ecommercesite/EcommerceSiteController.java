@@ -110,4 +110,9 @@ public class EcommerceSiteController {
 	public String contact() {		
 		return "contact";
 	}
+
+	@GetMapping("/payment")
+	public String payment() {		
+		return "payment";
+	}
 }
