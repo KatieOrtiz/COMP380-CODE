@@ -7,12 +7,13 @@
 <link rel="stylesheet" href="style.css">
 <script src="https://kit.fontawesome.com/35afca83d3.js" crossorigin="anonymous"></script>
 <style>
-  /*h2 element has a white line under to break up the page nicely  */
+  /* h2 element has a white line under to break up the page nicely  */
   h2 {
     border-bottom:10px solid white;
     text-align:center;
   }
-  .main {
+  
+.main {
   padding: 16px;
   margin-top: 0;
   height: 1500px;
@@ -28,6 +29,7 @@ label {
 </style>
 </head>
 <body>  
+  <!--The top navigation bar on the website-->
   <div class="navbar">
     <a href="/home">Home</a>
     <a href="/products">Products</a>
@@ -36,7 +38,7 @@ label {
     <a href="/cart" class="right">
       <div class="cart">
         <i class="fa-lg fa-solid fa-cart-shopping"></i>
-        <div id="cartAmount" class="cartAmount">0</div>
+        <div id="cartAmount" class="cartAmount">0</div> <!--Displays the number of items in cart-->
       </div>
     </a>
   </div>
@@ -81,6 +83,7 @@ label {
  
       </script>
        <script>
+        //shopItemsData holds the items and each aspect of the item
         let shopItemsData = [
           {
             id: "item1",
@@ -180,7 +183,7 @@ label {
                 `;
             }).join(""));
           }
-          else {
+          else { //if no items in cart, display empty cart with the below html 
             console.log("Empty basket");
             ShoppingCart.innerHTML = "";
             label.innerHTML = `
@@ -197,7 +200,7 @@ label {
         
       </script>
     </div>
-
+<!--The bottom navigation bar on the website-->  
   <div class="bottomnavbar">
     <a href="/about" class="active">About</a>
     <a href="/faq">FAQ</a>
