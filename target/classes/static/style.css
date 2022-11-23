@@ -449,7 +449,7 @@ form div div {
   border-radius: 5px;
   display: flex;
   width: 460px;
-  
+  background-color: #f1f1f1;
 }
 
 .details {
@@ -464,15 +464,13 @@ form div div {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid red;
 }
 
 .title-price {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: white;
-  border: 2px solid  #6699ff;
+  color: rgb(30, 25, 25);
 }
 
 .cart-item-price {
@@ -484,7 +482,7 @@ form div div {
 
 /* "x" button */
 .bi-x-lg {
-  color: rgb(240, 155, 155);
+  color: rgb(124, 5, 5);
   font-weight: bold;
 }
 
@@ -501,7 +499,7 @@ form div div {
 
 /* decrement button */
 .bi-dash-lg {
-  color: rgb(255, 193, 193);
+  color: rgb(107, 0, 0);
 }
 
 .bi-dash-lg:hover {
@@ -510,7 +508,7 @@ form div div {
 
 /* increment button */
 .bi-plus-lg {
-  color: rgb(158, 255, 158);
+  color: rgb(2, 65, 2);
   cursor: pointer;
 }
 
@@ -520,7 +518,7 @@ form div div {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .HomeBtn,
@@ -537,9 +535,9 @@ form div div {
 }
 
 .checkout {
-  background-color: rgb(27, 51, 158);
+  background-color: #25316D;
 }
 
 .removeAll {
-  background-color: rgb(142, 20, 20);
+  background-color: #7C3E66;
 }

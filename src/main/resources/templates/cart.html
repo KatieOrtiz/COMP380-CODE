@@ -24,7 +24,6 @@
   </div>
 
   <div class="main">
-    <h1 style="font-family: Lucida Handwriting; color: white;">Cart</h1>
 
     <!-- Show items in cart -->
     <div class="shopping-cart" id="shopping-cart"></div>
@@ -132,14 +131,14 @@
                   <p>${name}</p>
                   <p class="cart-item-price">$ ${price}</p>
                 </h4>
-                <i onclick="removeItem(${id})" class="bi bi-x-lg"></i>
+                <i onclick="removeItem(${id})" class="bi bi-x-lg fa-lg"></i>
               </div>
 
               <div class="cart-buttons">
                 <div class="buttons">
-                  <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
+                  <i onclick="decrement(${id})" class="bi bi-dash-lg fa-lg"></i>
                   <div id=${id} class="quantity">${item}</div>
-                  <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
+                  <i onclick="increment(${id})" class="bi bi-plus-lg fa-lg"></i>
                 </div>
               </div>
 
@@ -153,7 +152,7 @@
       } else {
         ShoppingCart.innerHTML = "";
         label.innerHTML = `
-        <h2>Cart is Empty</h2>
+        <h2 style="color:white;">Cart is Empty</h2>
         <a href="/home">
           <button class="HomeBtn">Back to Home</button>
         </a>
@@ -247,7 +246,8 @@
           .reduce((x, y) => x + y, 0);
 
         return (label.innerHTML = `
-        <h2>Total Bill : $ ${amount}</h2>
+        <br><br>
+        <h2 style="color:white;">Total Bill : $ ${amount}</h2>
         <a href="/checkout">
           <button class="checkout">Checkout</button>
         </a>
