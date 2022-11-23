@@ -33,30 +33,65 @@ public class readfile{
 	}   
 
 
+    
+    /** 
+     * Gets the first piece of data from the user.txt file, which is the username.
+     * @return String returns the variable that is found, which is the username
+     */
     //return found variables
     public String getA(){
         return a;
     }
 
+    
+    /** 
+     * Gets the first piece of data from the user.txt file, which is the password.
+     * @return String returns the variable that is found, which is the password
+     */
     public String getB(){
         return b;
     }
 
+    
+    /** 
+     * Gets the first piece of data from the user.txt file, which is the name.
+     * @return String returns the variable that is found, which is the name
+     */
     public String getC(){
         return c;
     }
+    
+    /** 
+     * Gets the first piece of data from the user.txt file, which is the email.
+     * @return String returns the variable that is found, which is the email
+     */
     public String getD(){
         return d;
     }
 
+    
+    /** 
+     * Gets the first piece of data from the user.txt file, which is the note.
+     * @return String returns the variable that is found, which is the note
+     */
     public String getE(){
         return e;
     }
 
+    
+    /** 
+     * Gets the first piece of data from the user.txt file, which is the birthday.
+     * @return String returns the variable that is found, which is the birthday
+     */
     public String getF(){
         return f;
     }
 
+    
+    /** 
+     * Gets the first piece of data from the user.txt file, which is the profession.
+     * @return String returns the variable that is found, which is the profession
+     */
     public String getG(){
         return g;
     }
