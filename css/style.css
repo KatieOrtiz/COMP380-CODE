@@ -425,15 +425,6 @@ form div div {
   margin-top: 10px;
 }
 
-.title-price-x {
-  color: white;
-}
-
-.cart-item {
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
 /* Send Email Button Styling */
 .emailbutton {
   background-color: #6699ff; 
@@ -450,4 +441,110 @@ form div div {
 .emailbutton:hover {
   background: #9fafca;
   color: black;
+}
+
+/* cart page styling */
+.cart-item {
+  border: 1.5px solid #e2eaf2;
+  border-radius: 5px;
+  display: flex;
+  width: 460px;
+  background-color: #f1f1f1;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+
+.title-price-x {
+  width: 195px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgb(30, 25, 25);
+}
+
+.cart-item-price {
+  background-color: #212529;
+  color: white;
+  border-radius: 4px;
+  padding: 3px 10px;
+}
+
+/* "x" button */
+.bi-x-lg {
+  color: rgb(124, 5, 5);
+  font-weight: bold;
+}
+
+.bi-x-lg:hover {
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  font-size: 16px;
+}
+
+/* decrement button */
+.bi-dash-lg {
+  color: rgb(107, 0, 0);
+}
+
+.bi-dash-lg:hover {
+  cursor: pointer;
+}
+
+/* increment button */
+.bi-plus-lg {
+  color: rgb(2, 65, 2);
+  cursor: pointer;
+}
+
+.quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+
+.cart-quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(0, 0, 0);
+}
+
+.HomeBtn,
+.checkout,
+.removeAll {
+  background-color: #212529;
+  font-size: 26px;
+  color: white;
+  border: none;
+  padding: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.checkout {
+  background-color: #25316D;
+}
+
+.removeAll {
+  background-color: #7C3E66;
 }
