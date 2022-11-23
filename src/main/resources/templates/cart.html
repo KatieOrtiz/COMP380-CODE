@@ -123,7 +123,7 @@
             let { img, price, name } = search;
             return `
           <div class="cart-item">
-            <img width="200px" src=${img} alt="" />
+            <img width="250px" src=${img} alt="" />
 
             <div class="details">
             
@@ -248,7 +248,10 @@
 
         return (label.innerHTML = `
         <h2>Total Bill : $ ${amount}</h2>
-        <button class="checkout">Checkout</button>
+        <a href="/checkout">
+          <button class="checkout">Checkout</button>
+        </a>
+        <br><br>
         <button onclick="clearCart()" class="removeAll">Clear Cart</button>
         `);
       } else return;

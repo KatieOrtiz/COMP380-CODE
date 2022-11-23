@@ -425,12 +425,6 @@ form div div {
   margin-top: 10px;
 }
 
-.cart-item {
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-
 /* Send Email Button Styling */
 .emailbutton {
   background-color: #6699ff; 
@@ -451,9 +445,11 @@ form div div {
 
 /* cart page styling */
 .cart-item {
-  border: 2px solid #212529;
+  border: 1.5px solid #e2eaf2;
   border-radius: 5px;
   display: flex;
+  width: 460px;
+  
 }
 
 .details {
@@ -468,7 +464,7 @@ form div div {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* border: 2px solid red; */
+  border: 2px solid red;
 }
 
 .title-price {
@@ -476,6 +472,7 @@ form div div {
   align-items: center;
   gap: 10px;
   color: white;
+  border: 2px solid  #6699ff;
 }
 
 .cart-item-price {
@@ -491,6 +488,10 @@ form div div {
   font-weight: bold;
 }
 
+.bi-x-lg:hover {
+  cursor: pointer;
+}
+
 .buttons {
   display: flex;
   flex-direction: row;
@@ -500,12 +501,17 @@ form div div {
 
 /* decrement button */
 .bi-dash-lg {
-  color: red;
+  color: rgb(255, 193, 193);
+}
+
+.bi-dash-lg:hover {
+  cursor: pointer;
 }
 
 /* increment button */
 .bi-plus-lg {
-  color: green;
+  color: rgb(158, 255, 158);
+  cursor: pointer;
 }
 
 /* does nothing */
