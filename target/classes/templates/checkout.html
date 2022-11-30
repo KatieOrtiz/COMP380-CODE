@@ -43,168 +43,168 @@ label {
     </a>
   </div>
 
+  <!-- checkout items detail -->
   <div class="main">
-    <h1 style="font-family: Lucida Handwriting; color: white;">Checkout</h1>
-    <h2 style="font-family: Lucida Handwriting; color: white;" >Order Summary</h2>
+   
 
-    <div align="center" >
-      <label><b>Items</b></label>
-      <label><b>Price</b></label>
-      <label><b>Quantity</b></label>
-
-
-      <div class="" id="shopping-cart"  >
-
-    </div></div>
     
     <br>
+    <!-- Place order button that send out an email -->
     <div align="center">
-    <button class="orderbutton" onclick="confirmationFunction()"><b>Place Order</b></button>
+      <button class="orderbutton" onclick="confirmationFunction()"><b>Place Order</b></button>
     </div>
 
-    <script>
-
-      //This function asks the customer to confirm that they want to place their order
-      function confirmationFunction() {
-        if (confirm("Press OK to place your order!")) {
-          orderPlaced();
-        } else {
-          
-        }
-      }
-
-      //This function confirms that the order was placed successfully, sends the email confirmation with order details, and redirects the user to the home page
-      function orderPlaced() {
-        alert("Your order was placed successfully!") //Windows displays to tell customer that their order was successfully placed
-        location.href="mailto:katie_kns@yahoo.com?subject=Order%20Confirmation&body=Dear%20Customer%2C%0D%0A%0D%0AThis%20is%20your%20confirmation%20receipt%20for%20the%20order%20you've%20placed%20on%20the%20CODE%20website!%20If%20you%20would%20like%20to%20track%20your%20order%2C%20the%20order%20number%20is%20101.%0D%0A%0D%0ASincerely%2C%0D%0AThe%20CODE%20Store%20Team"; //Email template opens in user's email app 
-        //window.open('email'); //New tab opens and order confirmation is displayed
-        location.href = "/home"; //Customer is redirected to home on the original tab
-      }
- 
-      </script>
-       <script>
-        //shopItemsData holds the items and each aspect of the item
-        let shopItemsData = [
-          {
-            id: "item1",
-            name: "Pants [Blue]",
-            price: 60,
-            shipping: 4.99,
-            desc: "Slim Dress Pants",
-            details: "<b> ***Details for Pants [Blue]*** <br><br> A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br></b>",
-            img: "pants.jpg",  
-            //quant: quantity.getA()
-          },
-          {
-            id: "item2",
-            name: "Star Wars Shirt",
-            price: 30,
-            shipping: 3.99,
-            desc: "Cool Classic Star Wars Shirt",
-            details: "<b> ***Details for Star Wars Shirt*** <br><br> Show your allegiance to the Galactic Empire with this comfy t-shirt <br><br> Size: L <br><br> Price: $30.00 + $3.99 shipping <br><br></b>",
-            img: "starwars.jpg",
-            //quant: quantity.getB()
-          },
-          {
-            id: "item3",
-            name: "Shoes [Blue]",
-            price: 50,
-            shipping: 5.99,
-            desc: "Easy Slip-On Shoes",
-            details: "<b> ***Details for Easy Slip-On Shoes*** <br><br> Houses for your feet <br><br> Size: 9 <br><br> Price: $50.00 + $5.99 shipping <br><br></b>",
-            img: "shoe.jpg",
-            //quant: quantity.getC()
-          },
-          {
-            id: "item4",
-            name: "Hat [Brown]",
-            price: 45,
-            shipping: 7.99,
-            desc: "Western Style Classic Cowboy Hat",
-            details: "<b> ***Details for Hat [Brown]*** <br><br> The perfect accessory to wear every day for casual wear or for a costume party <br><br> Size: Unisex <br><br> Price: $45.00 + $7.99 shipping <br><br></b>",
-            img: "hat.jpg",
-            //quant: quantity.getD()
-          },
-        ];
-      </script>
     
-      <!-- cart.js -->
-      <script>
-        let ShoppingCart = document.getElementById("shopping-cart");
-        let label = document.getElementById("label");
-    
-        // console.log(shopItemsData);
-    
-        /**
-         * ! Basket to hold all the selected items
-         * ? the getItem part is retrieving data from the local storage
-         * ? if local storage is blank, basket becomes an empty array
-         */
-    
-        let basket = JSON.parse(localStorage.getItem("data")) || [];
-    
-        /**
-         * ! To calculate total amount of selected Items
-         */
-    
-        let calculation = () => {
-          let cartIcon = document.getElementById("cartAmount");
-          cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
-        };
-    
-        calculation();
-    
-        /**
-         * ! Generates the Cart Page with product cards composed of
-         * ! images, title, price, buttons, & Total price
-         * ? When basket is blank -> show's Cart is Empty
-         */
-    
-        let generateCartItems = () => {
-          if(basket.length !== 0) {
-            console.log("Items in basket");
-            return (ShoppingCart.innerHTML = basket
-              .map((x)=>{ // object: x targets id in local storage
-                console.log(x);
-                let {id,item} = x; // x = basket 
-                // y = shopItemsData, to match id in basket with id in shopItemsData
-                // y.id is from shopItemsData & id is from x or basket
-                let search = shopItemsData.find((y)=>y.id === id) || [];
-                return `
-               
-                      <h4>
-                        <label>${search.name}</label>
-                        <label>$ ${search.price}</label>     
-                        <label id=${id} class="quantity">
-                         
-                        </label>
-                      </h4>        
-
-                `;
-            }).join(""));
-          }
-          else { //if no items in cart, display empty cart with the below html 
-            console.log("Empty basket");
-            ShoppingCart.innerHTML = "";
-            label.innerHTML = `
-            <h2>Cart is Empty</h2>
-            <a href="/home">
-              <button class="HomeBtn">Back to Home</button>
-            </a>
-            `;
-          }
-        };
-    
-        generateCartItems();
-    
-        
-      </script>
-    </div>
+  </div>
 <!--The bottom navigation bar on the website-->  
   <div class="bottomnavbar">
     <a href="/about" class="active">About</a>
     <a href="/faq">FAQ</a>
     <a href="/contact">Contact</a>
   </div>
+
+  <!-- e-mail.js -->
+  <script>
+
+    //This function asks the customer to confirm that they want to place their order
+    function confirmationFunction() {
+      if (confirm("Press OK to place your order!")) {
+        orderPlaced();
+      } else {
+        
+      }
+    }
+
+    //This function confirms that the order was placed successfully, sends the email confirmation with order details, and redirects the user to the home page
+    function orderPlaced() {
+      alert("Your order was placed successfully!") //Windows displays to tell customer that their order was successfully placed
+      location.href="mailto:katie_kns@yahoo.com?subject=Order%20Confirmation&body=Dear%20Customer%2C%0D%0A%0D%0AThis%20is%20your%20confirmation%20receipt%20for%20the%20order%20you've%20placed%20on%20the%20CODE%20website!%20If%20you%20would%20like%20to%20track%20your%20order%2C%20the%20order%20number%20is%20101.%0D%0A%0D%0ASincerely%2C%0D%0AThe%20CODE%20Store%20Team"; //Email template opens in user's email app 
+      //window.open('email'); //New tab opens and order confirmation is displayed
+      location.href = "/home"; //Customer is redirected to home on the original tab
+    }
+
+  </script>
+
+  <!-- Data.js -->
+  <script>
+      //shopItemsData holds the items and each aspect of the item
+      let shopItemsData = [
+        {
+          id: "item1",
+          name: "Pants [Blue]",
+          price: 60,
+          shipping: 4.99,
+          desc: "Slim Dress Pants",
+          details: "<b> ***Details for Pants [Blue]*** <br><br> A classic pant look built for maximum comfort and style <br><br> Size: 34 <br><br> Price: $60.00 + $4.99 shipping <br><br></b>",
+          img: "pants.jpg",  
+          //quant: quantity.getA()
+        },
+        {
+          id: "item2",
+          name: "Star Wars Shirt",
+          price: 30,
+          shipping: 3.99,
+          desc: "Cool Classic Star Wars Shirt",
+          details: "<b> ***Details for Star Wars Shirt*** <br><br> Show your allegiance to the Galactic Empire with this comfy t-shirt <br><br> Size: L <br><br> Price: $30.00 + $3.99 shipping <br><br></b>",
+          img: "starwars.jpg",
+          //quant: quantity.getB()
+        },
+        {
+          id: "item3",
+          name: "Shoes [Blue]",
+          price: 50,
+          shipping: 5.99,
+          desc: "Easy Slip-On Shoes",
+          details: "<b> ***Details for Easy Slip-On Shoes*** <br><br> Houses for your feet <br><br> Size: 9 <br><br> Price: $50.00 + $5.99 shipping <br><br></b>",
+          img: "shoe.jpg",
+          //quant: quantity.getC()
+        },
+        {
+          id: "item4",
+          name: "Hat [Brown]",
+          price: 45,
+          shipping: 7.99,
+          desc: "Western Style Classic Cowboy Hat",
+          details: "<b> ***Details for Hat [Brown]*** <br><br> The perfect accessory to wear every day for casual wear or for a costume party <br><br> Size: Unisex <br><br> Price: $45.00 + $7.99 shipping <br><br></b>",
+          img: "hat.jpg",
+          //quant: quantity.getD()
+        },
+      ];
+  </script>
+  
+  <!-- Check out detials, js -->
+  <script>
+      let ShoppingCart = document.getElementById("shopping-cart");
+      let label = document.getElementById("label");
+  
+      // console.log(shopItemsData);
+  
+      /**
+       * ! Basket to hold all the selected items
+       * ? the getItem part is retrieving data from the local storage
+       * ? if local storage is blank, basket becomes an empty array
+       */
+  
+      let basket = JSON.parse(localStorage.getItem("data")) || [];
+  
+      /**
+       * ! To calculate total amount of selected Items
+       */
+  
+      let calculation = () => {
+        let cartIcon = document.getElementById("cartAmount");
+        cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+      };
+  
+      calculation();
+  
+      /**
+       * ! Generates the Cart Page with product cards composed of
+       * ! images, title, price, buttons, & Total price
+       * ? When basket is blank -> show's Cart is Empty
+       */
+  
+      let generateCartItems = () => {
+        if(basket.length !== 0) {
+          // console.log("Items in basket");
+          return (ShoppingCart.innerHTML = basket
+            .map((x)=>{ // object: x targets id in local storage
+              console.log(x);
+              let { id, item } = x;
+          let search = shopItemsData.find((x) => x.id === id) || [];
+          let { img, price, shipping, name } = search;
+          return `
+             
+                    <h4>
+                      <label>${search.name}</label>
+                      <label>$ ${search.price}</label>     
+                      <label>
+                        <div id=${id} class="cart-quantity">${item}</div>
+                      </label>
+                    </h4>   
+                    
+                    <div class="total">
+                      total:
+                    </div>
+
+              `;
+          }).join(""));
+        }
+        else { //if no items in cart, display empty cart with the below html 
+          console.log("Empty basket");
+          ShoppingCart.innerHTML = "";
+          label.innerHTML = `
+          <h2>Cart is Empty</h2>
+          <a href="/home">
+            <button class="HomeBtn">Back to Home</button>
+          </a>
+          `;
+        }
+      };
+  
+      generateCartItems();
+  
+      
+  </script>
 </body>
 </html>
