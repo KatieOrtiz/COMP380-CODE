@@ -548,3 +548,59 @@ form div div {
 .removeAll {
   background-color: #7C3E66;
 }
+
+/* checkout page */
+.main-checkout-page {
+  margin: 80px 50px;
+}
+
+.checkout-page {
+  margin: 80px auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-info{
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+}
+
+th {
+  text-align: left;
+  padding: 5px;
+  color: white;
+  background: #14223d;
+  font-weight: normal;
+}
+
+td {
+  padding: 10px 5px;
+  color: white;
+}
+
+td img {
+  width: 250px;
+  margin-right: 10px;
+}
+
+.total-price{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.total-price table{
+  border-top: 3px solid #14223d;
+  width: 100%;
+  max-width: 270px;
+}
+
+td:last-child{
+  text-align: right;
+}
+
+th:last-child{
+  text-align: right;
+}

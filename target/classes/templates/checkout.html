@@ -28,6 +28,7 @@ label {
 
 </style>
 </head>
+
 <body>  
   <!--The top navigation bar on the website-->
   <div class="navbar">
@@ -45,8 +46,22 @@ label {
 
   <!-- checkout items detail -->
   <div class="main">
-   
+    <div class="main-checkout">
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr> 
+      </table>
+    </div>
+    <div class="small-container checkout-page">
 
+
+    </div>
+
+    <div class="checkout-page" id="checkout-page"></div>
+    
     
     <br>
     <!-- Place order button that send out an email -->
@@ -134,7 +149,7 @@ label {
   
   <!-- Check out detials, js -->
   <script>
-      let ShoppingCart = document.getElementById("shopping-cart");
+      let ShoppingCart = document.getElementById("checkout-page");
       let label = document.getElementById("label");
   
       // console.log(shopItemsData);
@@ -174,18 +189,47 @@ label {
           let search = shopItemsData.find((x) => x.id === id) || [];
           let { img, price, shipping, name } = search;
           return `
-             
-                    <h4>
-                      <label>${search.name}</label>
-                      <label>$ ${search.price}</label>     
-                      <label>
-                        <div id=${id} class="cart-quantity">${item}</div>
-                      </label>
-                    </h4>   
-                    
-                    <div class="total">
-                      total:
-                    </div>
+          <div class="small-container checkout-page">
+      <table>
+        <tr>
+          <td>
+            <div class="cart-info">
+              <img src="hat.jpg">
+              <div>
+                <p>Cowboy</p>
+                <small>Price: $50.00</small>
+                <br>
+                <small>Shipping: $4.00</small>
+              </div>
+            </div>
+          </td>
+          <td>1</td>
+          <td>$50</td>
+        </tr>
+      </table>
+
+      <div class="total-price">
+        <table>
+          <tr>
+            <td>Subtotal</td>
+            <td>$200.00</td>
+          </tr>
+          <tr>
+            <td>Tax</td>
+            <td>$200.00</td>
+          </tr>
+          <tr>
+            <td>Shipping</td>
+            <td>$200.00</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>$200.00</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
 
               `;
           }).join(""));
@@ -206,5 +250,6 @@ label {
   
       
   </script>
+
 </body>
 </html>
