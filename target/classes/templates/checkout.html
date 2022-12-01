@@ -69,7 +69,9 @@
       </div>
 
       <div class="checkout-page" id="checkout-page"></div>
-      
+
+      <div class="total" id="total"></div>
+        
       
     </div>
     
@@ -192,20 +194,20 @@
                 <tr>
                   <td>
                     <div class="item-info">
-                      <img width=200px src="hat.jpg" alt="">
+                      <img width=200px src=${img} alt="">
                       <div>
-                        <p>name</p>
-                        <p>price</p>
-                        <p>shipping</p>
+                        <p>${name}</p>
+                        <p>$ ${price}</p>
+                        <p>Shipping: $ ${shipping}</p>
                       </div>
                     </div>
                   </td>
                   <td>
                     <div class="quantity-info">
-                      1
+                      ${item}
                     </div>  
                   </td>
-                  <td>$20</td>
+                  <td>$ ${(item * price) + shipping}</td>
                 </tr>
               </table>
             </div>
@@ -217,8 +219,45 @@
 
     generateCartItems();
     
+    let TotalAmount = () => {
+      if (basket.length !== 0) {
+        let amount = basket
+          .map((x) => {
+            let { id, item } = x;
+            let filterData = shopItemsData.find((x) => x.id === id);
+            var total = (filterData.price * item) + filterData.shipping;
+            // total.toFixed(2); 
+            return total;
+          })
+          .reduce((x, y) => x + y, 0);
+
+        return (total.innerHTML = `
+        <br><br>
+        <div class="total-price">
+          <table>
+            <tr>
+              <td>Subtotal</td>
+              <td>$ </td>
+            </tr>
+            <tr>
+              <td>Tax</td>
+              <td>$ </td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td>$ ${amount}</td>
+            </tr>
+
+          </table>
+        </div>
+
+        `);
+      } else return;
+    };
+
+    TotalAmount();
         
-      </script>
+    </script>
   </div>
 
   <div class="bottomnavbar">

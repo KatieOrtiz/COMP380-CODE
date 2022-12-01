@@ -552,14 +552,14 @@ form div div {
 /* checkout page */
 
 .head{
-  margin: 80px auto;
+  margin: 10px auto;
 }
 table{
   width: 60%;
   border-collapse: collapse;
 }
 .product-label {
-  padding-right: 260px;
+  padding-right: 200px;
 }
 .quantity-label{
   padding-right: 10px;

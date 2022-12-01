@@ -145,7 +145,7 @@
                 </div>
               </div>
 
-              <h3>$ ${item * (price + shipping)}</h3>
+              <h3>$ ${(item * price) + shipping}</h3>
             
             </div>
           </div>
@@ -246,7 +246,7 @@
           .map((x) => {
             let { id, item } = x;
             let filterData = shopItemsData.find((x) => x.id === id);
-            return (filterData.price + filterData.shipping) * item ;
+            return (filterData.price * item) + filterData.shipping ;
           })
           .reduce((x, y) => x + y, 0);
 
