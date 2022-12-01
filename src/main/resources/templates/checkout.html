@@ -70,6 +70,8 @@
 
       <div class="checkout-page" id="checkout-page"></div>
 
+      <div class="subtotal" id="subtotal"></div>
+      <div class="shipping" id="shipping"></div>
       <div class="total" id="total"></div>
         
       
@@ -207,7 +209,7 @@
                       ${item}
                     </div>  
                   </td>
-                  <td>$ ${(item * price) + shipping}</td>
+                  <td>$ ${(item * price)}</td>
                 </tr>
               </table>
             </div>
@@ -218,6 +220,63 @@
     };
 
     generateCartItems();
+
+    let subtotalAmount = () => {
+      if (basket.length !== 0) {
+        let amount = basket
+          .map((x) => {
+            let { id, item } = x;
+            let filterData = shopItemsData.find((x) => x.id === id);
+            var total = (filterData.price * item);
+            return total;
+          })
+          .reduce((x, y) => x + y, 0);
+
+        return (subtotal.innerHTML = `
+        <br><br>
+        <div class="total-price">
+          <table>
+            <tr>
+              <td>Subtotal</td>
+              <td>$ ${amount}</td>
+            </tr>
+          </table>
+        </div>
+
+        `);
+      } else return;
+    };
+
+    subtotalAmount();
+
+    let ShippingAmount = () => {
+      if (basket.length !== 0) {
+        let amount = basket
+          .map((x) => {
+            let { id, item } = x;
+            let filterData = shopItemsData.find((x) => x.id === id);
+            var total = filterData.shipping;
+            return total;
+          })
+          .reduce((x, y) => x + y, 0);
+
+        return (shipping.innerHTML = `
+        <br>
+        <div class="total-price">
+          <table>
+            <tr>
+              <td>Shipping</td>
+              <td>$ ${amount}</td>
+            </tr>
+
+          </table>
+        </div>
+
+        `);
+      } else return;
+    };
+
+    ShippingAmount();
     
     let TotalAmount = () => {
       if (basket.length !== 0) {
@@ -226,23 +285,14 @@
             let { id, item } = x;
             let filterData = shopItemsData.find((x) => x.id === id);
             var total = (filterData.price * item) + filterData.shipping;
-            // total.toFixed(2); 
             return total;
           })
           .reduce((x, y) => x + y, 0);
 
         return (total.innerHTML = `
-        <br><br>
+        <br>
         <div class="total-price">
           <table>
-            <tr>
-              <td>Subtotal</td>
-              <td>$ </td>
-            </tr>
-            <tr>
-              <td>Tax</td>
-              <td>$ </td>
-            </tr>
             <tr>
               <td>Total</td>
               <td>$ ${amount}</td>
