@@ -548,3 +548,13 @@ form div div {
 .removeAll {
   background-color: #7C3E66;
 }
+
+/* checkout page */
+
+.head{
+  margin: 80px auto;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+}

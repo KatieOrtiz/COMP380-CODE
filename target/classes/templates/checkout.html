@@ -9,6 +9,7 @@
 <script src="https://kit.fontawesome.com/35afca83d3.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
+<!-- css -->
 <style>
   /*h2 element has a white line under to break up the page nicely  */
   h2 {
@@ -21,14 +22,15 @@
   height: 1500px;
 }
 
-label {
+/* label {
   color: black;
   font-style: none;
   width: 33%;
   display: inline-block;
-}
+} */
 
 </style>
+
 </head>
 <body>  
   <div class="navbar">
@@ -45,29 +47,34 @@ label {
   </div>
 
   <div class="main">
-    <h1 style="font-family: Lucida Handwriting; color: white;">Checkout</h1>
-    <h2 style="font-family: Lucida Handwriting; color: white;" >Order Summary</h2>
+    
 
-    <div align="center" >
-      <label><b>Items</b></label>
-      <label><b>Price</b></label>
-      <label><b>Quantity</b></label>
+    <div align="center">
 
+      <div class="head" id="head">
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Product</th>
+          </tr>
+        </table>
+      </div>
 
-    <div class="" id="shopping-cart"  >
-
-    </div>
+      <div class="checkout-page" id="checkout-page"></div>
+      
       
     </div>
     
     <br>
     
-    
+    <!-- Place order button -->
     <div align="center">
-    <button class="orderbutton" onclick="confirmationFunction()"><b>Place Order</b></button>
+      <button class="orderbutton" onclick="confirmationFunction()"><b>Place Order</b></button>
     </div>
 
-    <script>
+      <!-- e-mail confirmation -->
+      <script>
 
       //This function asks the customer to confirm that they want to place their order
       function confirmationFunction() {
@@ -87,7 +94,9 @@ label {
       }
  
       </script>
-       <script>
+
+      <!-- Data.js -->
+      <script>
         let shopItemsData = [
           {
             id: "item1",
@@ -164,51 +173,65 @@ label {
          * ? When basket is blank -> show's Cart is Empty
          */
     
-        let generateCartItems = () => {
-          if(basket.length !== 0) {
-            console.log("Items in basket");
-            return (ShoppingCart.innerHTML = basket
-              .map((x)=>{ // object: x targets id in local storage
-                console.log(x);
-                let {id,item} = x; // x = basket 
-                // y = shopItemsData, to match id in basket with id in shopItemsData
-                // y.id is from shopItemsData & id is from x or basket
-                let search = shopItemsData.find((y)=>y.id === id) || [];
-                return `
-               
-                      <h4>
-                        <label>${search.name}</label>
-                        <label>$ ${search.price}</label>     
-                        <label id=${id} class="quantity">
-                         
-                        </label>
-                      </h4>        
+         let generateCartItems = () => {
+          if (basket.length !== 0) {
+          return (ShoppingCart.innerHTML = basket
+            .map((x) => {
+            let { id, item } = x;
+            let search = shopItemsData.find((x) => x.id === id) || [];
+            let { img, price, shipping, name } = search;
+            return `
+          <div class="cart-item">
+            <img width="250px" src=${img} alt="" />
 
-                `;
-            }).join(""));
-          }
-          else {
-            console.log("Empty basket");
-            ShoppingCart.innerHTML = "";
-            label.innerHTML = `
-            <h2>Cart is Empty</h2>
-            <a href="/home">
-              <button class="HomeBtn">Back to Home</button>
-            </a>
-            `;
-          }
-        };
-    
-        generateCartItems();
+            <div class="details">
+            
+              <div class="title-price-x">
+                <h4 class="title-price">
+                  <p>${name}</p>
+                  <p class="cart-item-price">$${price}</p>
+                  <p class="cart-item-price">$${shipping}</p>
+                </h4>
+                <i onclick="removeItem(${id})" class="bi bi-x-lg fa-lg"></i>
+              </div>
+
+              <div class="cart-buttons">
+                <div class="buttons">
+                  <i onclick="decrement(${id})" class="bi bi-dash-lg fa-lg"></i>
+                  <div id=${id} class="cart-quantity">${item}</div>
+                  <i onclick="increment(${id})" class="bi bi-plus-lg fa-lg"></i>
+                </div>
+              </div>
+
+              <h3>$ ${item * (price + shipping)}</h3>
+            
+            </div>
+          </div>
+          `;
+          })
+          .join(""));
+      } else {
+        ShoppingCart.innerHTML = "";
+        label.innerHTML = `
+        <h2 style="color:white;">Cart is Empty</h2>
+        <a href="/home">
+          <button class="HomeBtn">Back to Home</button>
+        </a>
+        `;
+      }
+    };
+
+    generateCartItems();
     
         
       </script>
-    </div>
+  </div>
 
   <div class="bottomnavbar">
     <a href="/about" class="active">About</a>
     <a href="/faq">FAQ</a>
     <a href="/contact">Contact</a>
-  </div>
+  </div>  
+
 </body>
 </html>
