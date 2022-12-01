@@ -555,6 +555,38 @@ form div div {
   margin: 80px auto;
 }
 table{
-  width: 100%;
+  width: 60%;
   border-collapse: collapse;
+}
+.product-label {
+  padding-right: 260px;
+}
+.quantity-label{
+  padding-right: 10px;
+}
+
+
+.item-info{
+  display: flex;
+  flex-wrap: wrap;
+}
+th{
+  text-align: center;
+  padding: 5px;
+  color: white;
+  background: #1f3962;
+}
+td{
+  color: white;
+}
+td img{
+  margin-right: 10px;
+}
+
+.quantity-info{
+  padding-right: 60px;
+}
+
+p{
+  padding: 5px;
 }
