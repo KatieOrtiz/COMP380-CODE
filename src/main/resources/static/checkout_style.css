@@ -157,6 +157,27 @@ body {
     background-color: #0558a0;
 }
 
+/* Checkout button */
 .confirm {
-    color: #c0bfbf;
+    color: #6a2525;
+}
+
+.checkButton {
+    position: absolute;
+    bottom: -50%; 
+    right: 45.5%;
+    background-color: #0e387a;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.checkButton:hover {
+    cursor: pointer;
 }
