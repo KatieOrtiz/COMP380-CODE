@@ -18,6 +18,7 @@ span {
 </style>
 </head>
 <body>
+    <!--The top navigation bar on the website-->
     <div class="navbar">
         <a href="/home">Home</a>
         <a href="/products">Products</a>
@@ -26,11 +27,12 @@ span {
         <a href="/cart" class="right">
             <div class="cart">
               <i class="fa-lg fa-solid fa-cart-shopping"></i>
-              <div id="cartAmount" class="cartAmount">0</div>
+              <div id="cartAmount" class="cartAmount">0</div> <!--Displays the number of items in cart-->
             </div>
         </a>
       </div>
   
+    <!--Signup success that displays the user's info-->
     <div class="center">
         <h2 style="font-family: Lucida Handwriting; color: black;">Signup Succeeded!</h2>
         &emsp;Full name:   <span th:text=" ${user.name}"></span><br/><br/>
@@ -40,7 +42,7 @@ span {
         &emsp;Profession:  <span th:text="${user.profession}"></span><br/><br/>
         &emsp;Note: &emsp; <span th:text="${user.note}"></span><br/><br/><br/><br/><br/>
     </div>
-
+<!--The bottom navigation bar on the website-->  
     <div class="bottomnavbar">
         <a href="/about" class="active">About</a>
         <a href="/faq">FAQ</a>
