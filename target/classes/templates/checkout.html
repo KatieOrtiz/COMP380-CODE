@@ -5,7 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="checkout_style.css">
 <script src="https://kit.fontawesome.com/35afca83d3.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+<!-- css -->
 <style>
   /* h2 element has a white line under to break up the page nicely  */
   h2 {
@@ -18,15 +22,8 @@
   margin-top: 0;
   height: 1500px;
 }
-
-label {
-  color: black;
-  font-style: none;
-  width: 33%;
-  display: inline-block;
-}
-
 </style>
+
 </head>
 <body>  
   <!--The top navigation bar on the website-->
@@ -44,25 +41,48 @@ label {
   </div>
 
   <div class="main">
-    <h1 style="font-family: Lucida Handwriting; color: white;">Checkout</h1>
-    <h2 style="font-family: Lucida Handwriting; color: white;" >Order Summary</h2>
-
-    <div align="center" >
-      <label><b>Items</b></label>
-      <label><b>Price</b></label>
-      <label><b>Quantity</b></label>
-
-
-      <div class="" id="shopping-cart"  >
-
-    </div></div>
-    
-    <br>
+   
     <div align="center">
-    <button class="orderbutton" onclick="confirmationFunction()"><b>Place Order</b></button>
+
+      <div class="head" id="head">
+        <table>
+          <tr>
+            <th>
+              <div class="product-label">Product</div>
+            </th>
+            <th>
+              <div class="quantity-label">Quantity</div>
+            </th>
+            <th>
+              <div class="subtotal-label">Subtotal</div>
+            </th>
+          </tr>
+          
+        </table>
+      </div>
+
+      <div class="checkout-page" id="checkout-page"></div>
+
+      <br><br>
+      <div class="all-total">
+        <div class="subtotal" id="subtotal"></div>
+        <div class="shipping" id="shipping"></div>
+        <div class="total" id="total"></div>
+      </div>
+      
+        
+      
+    </div>
+    
+    <br><br><br><br><br><br><br><br><br><br><br>
+    
+    <!-- Place order button -->
+    <div align="center">
+      <button class="orderbutton" onclick="confirmationFunction()"><b>Place Order</b></button>
     </div>
 
-    <script>
+      <!-- e-mail confirmation -->
+      <script>
 
       //This function asks the customer to confirm that they want to place their order
       function confirmationFunction() {
@@ -82,8 +102,9 @@ label {
       }
  
       </script>
-       <script>
-        //shopItemsData holds the items and each aspect of the item
+
+      <!-- Data.js -->
+      <script>
         let shopItemsData = [
           {
             id: "item1",
@@ -131,7 +152,7 @@ label {
       <!-- cart.js -->
       <script>
         let ShoppingCart = document.getElementById("shopping-cart");
-        let label = document.getElementById("label");
+        let checkout = document.getElementById("checkout-page");
     
         // console.log(shopItemsData);
     
@@ -146,65 +167,138 @@ label {
         /**
          * ! To calculate total amount of selected Items
          */
-    
         let calculation = () => {
           let cartIcon = document.getElementById("cartAmount");
           cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
         };
     
         calculation();
-    
+     
         /**
          * ! Generates the Cart Page with product cards composed of
          * ! images, title, price, buttons, & Total price
          * ? When basket is blank -> show's Cart is Empty
          */
     
-        let generateCartItems = () => {
-          if(basket.length !== 0) {
-            console.log("Items in basket");
-            return (ShoppingCart.innerHTML = basket
-              .map((x)=>{ // object: x targets id in local storage
-                console.log(x);
-                let {id,item} = x; // x = basket 
-                // y = shopItemsData, to match id in basket with id in shopItemsData
-                // y.id is from shopItemsData & id is from x or basket
-                let search = shopItemsData.find((y)=>y.id === id) || [];
-                return `
-               
-                      <h4>
-                        <label>${search.name}</label>
-                        <label>$ ${search.price}</label>     
-                        <label id=${id} class="quantity">
-                         
-                        </label>
-                      </h4>        
+         let generateCartItems = () => {
+          if (basket.length !== 0) {
+          return (checkout.innerHTML = basket
+            .map((x) => {
+            let { id, item } = x;
+            let search = shopItemsData.find((x) => x.id === id) || [];
+            let { img, price, shipping, name } = search;
+            return `
+            <div class="head" id="head">
+              <table>
+                <tr>
+                  <td>
+                    <div class="item-info">
+                      <img width=200px src=${img} alt="">
+                      <div>
+                        <p>${name}</p>
+                        <p>$ ${price}</p>
+                        <p>Shipping: $ ${shipping}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="quantity-info">
+                      ${item}
+                    </div>  
+                  </td>
+                  <td>$ ${(item * price)}</td>
+                </tr>
+              </table>
+            </div>
+          `;
+          })
+          .join(""));
+      } 
+    };
 
-                `;
-            }).join(""));
-          }
-          else { //if no items in cart, display empty cart with the below html 
-            console.log("Empty basket");
-            ShoppingCart.innerHTML = "";
-            label.innerHTML = `
-            <h2>Cart is Empty</h2>
-            <a href="/home">
-              <button class="HomeBtn">Back to Home</button>
-            </a>
-            `;
-          }
-        };
+    generateCartItems();
+
+    let subtotalAmount = () => {
+      if (basket.length !== 0) {
+        let amount = basket
+          .map((x) => {
+            let { id, item } = x;
+            let filterData = shopItemsData.find((x) => x.id === id);
+            var total = (filterData.price * item);
+            return total;
+          })
+          .reduce((x, y) => x + y, 0);
+
+        return (subtotal.innerHTML = `
+        <br>
+          <p>
+            <span>Items: </span>
+            <span>$ ${amount}</span>
+          </p>
     
-        generateCartItems();
-    
+
+        `);
+      } else return;
+    };
+
+    subtotalAmount();
+
+    let ShippingAmount = () => {
+      if (basket.length !== 0) {
+        let amount = basket
+          .map((x) => {
+            let { id, item } = x;
+            let filterData = shopItemsData.find((x) => x.id === id);
+            var total = filterData.shipping;
+            return total;
+          })
+          .reduce((x, y) => x + y, 0);
+
+        return (shipping.innerHTML = `
         
-      </script>
-    </div>
-<!--The bottom navigation bar on the website-->  
+        <p>
+          <span>Shipping: </span>
+          <span>$ ${amount}</span>
+        </p> 
+
+        `);
+      } else return;
+    };
+
+    ShippingAmount();
+    
+    let TotalAmount = () => {
+      if (basket.length !== 0) {
+        let amount = basket
+          .map((x) => {
+            let { id, item } = x;
+            let filterData = shopItemsData.find((x) => x.id === id);
+            var total = (filterData.price * item) + filterData.shipping;
+            return total;
+          })
+          .reduce((x, y) => x + y, 0);
+
+        return (total.innerHTML = `
+        <br>
+        <p>
+          <span>Total: </span>
+          <span>$ ${amount}</span>
+        </p> 
+
+        `);
+      } else return;
+    };
+
+    TotalAmount();
+        
+    </script>
+  </div>
+
   <div class="bottomnavbar">
     <a href="/about" class="active">About</a>
     <a href="/faq">FAQ</a>
     <a href="/contact">Contact</a>
-  </div>
+  </div>  
+
 </body>
 </html>

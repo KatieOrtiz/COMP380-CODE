@@ -33,7 +33,7 @@
     <div class="text-center" id="label"></div>
   </div>
 
-<!--The bottom navigation bar on the website-->  
+  <!--The bottom navigation bar on the website-->  
   <div class="bottomnavbar">
     <a href="/about" class="active">About</a>
     <a href="/faq">FAQ</a>
@@ -145,7 +145,7 @@
                 </div>
               </div>
 
-              <h3>$ ${item * (price + shipping)}</h3>
+              <h3>$ ${(item * price) + shipping}</h3>
             
             </div>
           </div>
@@ -246,14 +246,14 @@
           .map((x) => {
             let { id, item } = x;
             let filterData = shopItemsData.find((x) => x.id === id);
-            return (filterData.price + filterData.shipping) * item ;
+            return (filterData.price * item) + filterData.shipping ;
           })
           .reduce((x, y) => x + y, 0);
 
         return (label.innerHTML = `
         <br><br>
-        <h2 style="color:white;">Total Bill : $ ${amount}</h2>
-        <a href="/checkout">
+        <h2 style="color:white;">Subtotal : $ ${amount}</h2>
+        <a href="/payment">
           <button class="checkout">Checkout</button>
         </a>
         <br><br>

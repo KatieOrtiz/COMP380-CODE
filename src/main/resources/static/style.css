@@ -35,6 +35,7 @@ li{
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 99999999;
 }
 
 .navbar a {
@@ -262,7 +263,7 @@ button {
 }
 span {
   color: red;
-  font-style: italic;
+  /* font-style: italic; */
 }
 form {
   display: table;
@@ -398,14 +399,16 @@ form div div {
 .orderbutton:hover {
   background: #9fafca;
   color: black;
+  cursor: pointer;
 }
 /* Style for cart page */
 
 .shopping-cart {
   display: grid;
-  grid-template-columns: repeat(1, 320px);
+  grid-template-columns: repeat(1, 35%);
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
+  
 }
 
 .text-center {
@@ -448,7 +451,7 @@ form div div {
   border: 1.5px solid #e2eaf2;
   border-radius: 5px;
   display: flex;
-  width: 460px;
+  width: 500px;
   background-color: #f1f1f1;
 }
 
@@ -471,6 +474,7 @@ form div div {
   align-items: center;
   gap: 10px;
   color: rgb(30, 25, 25);
+  margin-right: 15px;
 }
 
 .cart-item-price {
@@ -539,6 +543,7 @@ form div div {
   border-radius: 15px;
   cursor: pointer;
   margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .checkout {
@@ -548,3 +553,64 @@ form div div {
 .removeAll {
   background-color: #7C3E66;
 }
+
+/* checkout page */
+
+.head{
+  margin: 10px auto;
+}
+table{
+  width: 60%;
+  border-collapse: collapse;
+}
+.product-label {
+  padding-right: 260px;
+}
+.quantity-label{
+  padding-right: 10px;
+}
+
+
+.item-info{
+  display: flex;
+  flex-wrap: wrap;
+}
+th{
+  text-align: center;
+  padding: 5px;
+  color: white;
+  background: #1f3962;
+}
+td{
+  color: white;
+}
+td img{
+  margin-right: 10px;
+}
+
+.quantity-info{
+  padding-right: 60px;
+}
+
+p{
+  padding: 5px;
+}
+
+/* subtotal section */
+.all-total {
+  flex: 0.25;
+  width: 280px;
+  position: absolute;
+  right: 23%;
+  border-top: 3px solid #1f3962;
+}
+.all-total span {
+  color: white;
+}
+.all-total p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-style: bold;
+}
+
