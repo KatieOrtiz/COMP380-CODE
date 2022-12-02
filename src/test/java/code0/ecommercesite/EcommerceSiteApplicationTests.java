@@ -1,7 +1,19 @@
 package code0.ecommercesite;
 
+//import junit 4 testing framework
+import org.junit.Test;
+//import org.junit.Rule;
+//import static org.junit.Assert.*;
+//import org.junit.contrib.java.lang.system.SystemOutRule; 
+//import org.junit.contrib.java.lang.system.TestFromStandardInputStream;
+//import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.*;
 
-class EcommerceSiteApplicationTests {
+//import java.util.ArrayList;
 
-	
+public class EcommerceSiteApplicationTests {
+
+    @Test
+	 public void method() {
+      // org.junit.Assert.assertTrue( new ArrayList().isEmpty() );
+    }
 }
