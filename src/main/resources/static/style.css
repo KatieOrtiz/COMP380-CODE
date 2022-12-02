@@ -405,9 +405,10 @@ form div div {
 
 .shopping-cart {
   display: grid;
-  grid-template-columns: repeat(1, 320px);
+  grid-template-columns: repeat(1, 35%);
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
+  
 }
 
 .text-center {
@@ -450,7 +451,7 @@ form div div {
   border: 1.5px solid #e2eaf2;
   border-radius: 5px;
   display: flex;
-  width: 460px;
+  width: 500px;
   background-color: #f1f1f1;
 }
 
@@ -473,6 +474,7 @@ form div div {
   align-items: center;
   gap: 10px;
   color: rgb(30, 25, 25);
+  margin-right: 15px;
 }
 
 .cart-item-price {
@@ -541,6 +543,7 @@ form div div {
   border-radius: 15px;
   cursor: pointer;
   margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .checkout {
