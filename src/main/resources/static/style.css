@@ -262,7 +262,7 @@ button {
 }
 span {
   color: red;
-  font-style: italic;
+  /* font-style: italic; */
 }
 form {
   display: table;
@@ -398,6 +398,7 @@ form div div {
 .orderbutton:hover {
   background: #9fafca;
   color: black;
+  cursor: pointer;
 }
 /* Style for cart page */
 
@@ -590,3 +591,22 @@ td img{
 p{
   padding: 5px;
 }
+
+/* subtotal section */
+.all-total {
+  flex: 0.25;
+  width: 280px;
+  position: absolute;
+  right: 23%;
+  border-top: 3px solid #1f3962;
+}
+.all-total span {
+  color: white;
+}
+.all-total p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-style: bold;
+}
+

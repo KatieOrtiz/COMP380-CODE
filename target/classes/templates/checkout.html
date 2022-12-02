@@ -47,8 +47,7 @@
   </div>
 
   <div class="main">
-    
-
+   
     <div align="center">
 
       <div class="head" id="head">
@@ -70,14 +69,18 @@
 
       <div class="checkout-page" id="checkout-page"></div>
 
-      <div class="subtotal" id="subtotal"></div>
-      <div class="shipping" id="shipping"></div>
-      <div class="total" id="total"></div>
+      <br><br>
+      <div class="all-total">
+        <div class="subtotal" id="subtotal"></div>
+        <div class="shipping" id="shipping"></div>
+        <div class="total" id="total"></div>
+      </div>
+      
         
       
     </div>
     
-    <br>
+    <br><br><br><br><br><br><br><br><br><br><br>
     
     <!-- Place order button -->
     <div align="center">
@@ -233,15 +236,12 @@
           .reduce((x, y) => x + y, 0);
 
         return (subtotal.innerHTML = `
-        <br><br>
-        <div class="total-price">
-          <table>
-            <tr>
-              <td>Subtotal</td>
-              <td>$ ${amount}</td>
-            </tr>
-          </table>
-        </div>
+        <br>
+          <p>
+            <span>Items: </span>
+            <span>$ ${amount}</span>
+          </p>
+    
 
         `);
       } else return;
@@ -261,16 +261,11 @@
           .reduce((x, y) => x + y, 0);
 
         return (shipping.innerHTML = `
-        <br>
-        <div class="total-price">
-          <table>
-            <tr>
-              <td>Shipping</td>
-              <td>$ ${amount}</td>
-            </tr>
-
-          </table>
-        </div>
+        
+        <p>
+          <span>Shipping: </span>
+          <span>$ ${amount}</span>
+        </p> 
 
         `);
       } else return;
@@ -291,15 +286,10 @@
 
         return (total.innerHTML = `
         <br>
-        <div class="total-price">
-          <table>
-            <tr>
-              <td>Total</td>
-              <td>$ ${amount}</td>
-            </tr>
-
-          </table>
-        </div>
+        <p>
+          <span>Total: </span>
+          <span>$ ${amount}</span>
+        </p> 
 
         `);
       } else return;
