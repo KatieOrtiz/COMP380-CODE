@@ -82,24 +82,7 @@
     </div>
 
       <!-- e-mail confirmation -->
-      <script>
 
-      //This function asks the customer to confirm that they want to place their order
-      function confirmationFunction() {
-        if (confirm("Press OK to place your order!")) {
-          orderPlaced();
-        } else {
-          
-        }
-      }
-
-      //This function confirms that the order was placed successfully, sends the email confirmation with order details, and redirects the user to the home page
-      function orderPlaced() {
-        alert("Your order was placed successfully!") //Windows displays to tell customer that their order was successfully placed
-        location.href="mailto:katie_kns@yahoo.com?subject=Order%20Confirmation&body=Dear%20Customer%2C%0D%0A%0D%0AThis%20is%20your%20confirmation%20receipt%20for%20the%20order%20you've%20placed%20on%20the%20CODE%20website!%20If%20you%20would%20like%20to%20track%20your%20order%2C%20the%20order%20number%20is%20101.%0D%0A%0D%0ASincerely%2C%0D%0AThe%20CODE%20Store%20Team"; //Email template opens in user's email app 
-        //window.open('email'); //New tab opens and order confirmation is displayed
-        location.href = "/home"; //Customer is redirected to home on the original tab
-      }
  
       </script>
 
@@ -266,6 +249,12 @@
     };
 
     ShippingAmount();
+
+    const round = (value, digits) => {
+      const factor = Math.pow(10, digits);
+      value += math.sign(value) + Number.EPSILON;
+      return Math.round(value * factor) / factor;
+    }
     
     let TotalAmount = () => {
       if (basket.length !== 0) {
@@ -274,7 +263,9 @@
             let { id, item } = x;
             let filterData = shopItemsData.find((x) => x.id === id);
             var total = (filterData.price * item) + filterData.shipping;
-            return total;
+            var result = Math.round(total*100)/100;
+            // return total;
+            return result;
           })
           .reduce((x, y) => x + y, 0);
 
@@ -290,6 +281,32 @@
     };
 
     TotalAmount();
+
+
+        //This function asks the customer to confirm that they want to place their order
+        function confirmationFunction() {
+          if (confirm("Press OK to place your order!")) {
+            orderPlaced();
+
+            let clearCart = () => {
+              basket = [];
+              generateCartItems();
+              calculation();
+              localStorage.setItem("data", JSON.stringify(basket));
+            };
+          clearCart();
+          } else {
+            
+          }
+        }
+
+        //This function confirms that the order was placed successfully, sends the email confirmation with order details, and redirects the user to the home page
+        function orderPlaced() {
+          alert("Your order was placed successfully!") //Windows displays to tell customer that their order was successfully placed
+          location.href="mailto:katie_kns@yahoo.com?subject=Order%20Confirmation&body=Dear%20Customer%2C%0D%0A%0D%0AThis%20is%20your%20confirmation%20receipt%20for%20the%20order%20you've%20placed%20on%20the%20CODE%20website!%20If%20you%20would%20like%20to%20track%20your%20order%2C%20the%20order%20number%20is%20101.%0D%0A%0D%0ASincerely%2C%0D%0AThe%20CODE%20Store%20Team"; //Email template opens in user's email app 
+          //window.open('email'); //New tab opens and order confirmation is displayed
+          location.href = "/home"; //Customer is redirected to home on the original tab
+        }
         
     </script>
   </div>
